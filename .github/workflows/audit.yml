@@ -1,0 +1,32 @@
+name: Audit on push
+
+on: push
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    name: Audit
+
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v2
+
+      - name: Check if .editorconfig exists
+        uses: andstor/file-existence-action@v1
+        with:
+          files: ".editorconfig"
+          allow_failure: true
+
+      - name: EditorConfig validation
+        uses: snow-actions/eclint@v1.0.1
+
+      - name: Ensure node_modules is ignored by Git
+        uses: dkershner6/gitignore-parser@v1
+        with:
+          must_deny: "node_modules"
+
+      - name: Install modules
+        run: yarn
+
+      - name: ESLint validation
+        run: npx eslint --ignore-path .gitignore .
