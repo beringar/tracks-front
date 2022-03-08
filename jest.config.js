@@ -12,13 +12,13 @@ const customJestConfig = {
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
   collectCoverageFrom: [
     "**/*.{js,jsx,ts,tsx}",
-    "!./**/*.config.js",
-    "!**/*.test.js",
+    "!jest.config.js",
+    "!next.config.js",
+    "!**/*.test.{ts,tsx}",
     "!**/.next/**",
     "!**/*.d.ts",
     "!**/node_modules/**",
     "!**/coverage/**",
-    "!./**/_app.tsx",
   ],
 };
 
