@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 
-import Layout, { Props } from "../../src/components/Layout/Layout";
+import Layout, { Props } from "../../src/components/Layout";
 
 describe("Given a Layout component", () => {
   describe("When it's rendered with a title 'test layout title' h1 heading with accessible name 'test layout'", () => {
