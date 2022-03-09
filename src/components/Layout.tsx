@@ -1,11 +1,5 @@
-import React, { ReactNode } from "react";
 import NavBar from "../components/NavBar";
 import Head from "next/head";
-
-export interface Props {
-  children?: ReactNode;
-  title?: string;
-}
 
 const Layout = () => (
   <>
