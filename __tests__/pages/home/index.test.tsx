@@ -8,7 +8,7 @@ describe("Given a Home component", () => {
       render(<Home />);
 
       const heading = screen.getByRole("heading", {
-        name: /Home page Tracks/i,
+        name: /Aquí hi aniran continguts/i,
       });
 
       expect(heading).toBeInTheDocument();
