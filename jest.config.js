@@ -18,6 +18,8 @@ const customJestConfig = {
     "!jest.config.js",
     "!next.config.js",
     "!**/_app.tsx",
+    "!**/theme.tsx",
+    "!**/_document.tsx",
     "!**/*.d.ts",
     "!**/node_modules/**",
     "!**/coverage/**",

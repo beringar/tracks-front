@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import { Heading, Container } from "@chakra-ui/react";
-import { CheckCircleIcon, LinkIcon } from "@chakra-ui/icons";
 
 const Home: NextPage = () => (
   <Container maxW="container.lg">
