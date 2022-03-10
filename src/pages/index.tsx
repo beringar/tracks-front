@@ -42,7 +42,7 @@ const Home: NextPage = () => {
               w={"full"}
               bg={bgCard}
               boxShadow={"2xl"}
-              rounded={"md"}
+              rounded={"xl"}
               p={6}
               overflow={"hidden"}
             >
