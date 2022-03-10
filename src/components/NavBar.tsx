@@ -42,11 +42,7 @@ const NavBar = () => {
           </HStack>
           <HStack>
             <NextLink href="/" passHref>
-              <Button
-                leftIcon={<ArrowRightIcon />}
-                colorScheme="gray"
-                size="sm"
-              >
+              <Button leftIcon={<ArrowRightIcon />} size="sm" variant="ghost">
                 {CTA}
               </Button>
             </NextLink>

@@ -20,6 +20,13 @@ const theme = extendTheme({
   },
   fonts,
   breakpoints,
+  styles: {
+    global: {
+      html: {
+        scrollBehavior: "smooth",
+      },
+    },
+  },
 });
 
 export default theme;

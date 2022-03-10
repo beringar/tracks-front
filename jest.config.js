@@ -14,6 +14,7 @@ const customJestConfig = {
     "src/**/*.tsx",
     "src/**/*.ts",
     "!.next/**/*",
+    "!src/app/**/*",
     "!coverage/**/*",
     "!jest.config.js",
     "!next.config.js",
