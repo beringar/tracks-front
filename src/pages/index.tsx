@@ -30,13 +30,13 @@ const Home: NextPage = () => {
   const headingColor = useColorModeValue("gray.700", "white");
 
   return (
-    <Container maxW="container.lg">
+    <Container maxW="container.lg" py={4}>
       <Heading as="h2" size="md">
         de moment és read CSR...
       </Heading>
-      <SimpleGrid minChildWidth="300px" spacing="15px">
+      <SimpleGrid minChildWidth="300px" spacing="15px" alignItems="start">
         {data.tracks.map((track: Track) => (
-          <Center key={track.id} py={6}>
+          <Center key={track.id}>
             <Box
               maxW={"445px"}
               w={"full"}
