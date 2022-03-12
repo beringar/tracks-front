@@ -1,6 +1,4 @@
 import type { NextPage } from "next";
-import { useAppDispatch, useAppSelector } from "../app/hooks";
-import { getAllTracks, tracksSelector } from "../features/tracks";
 import Image from "next/image";
 import {
   Heading,
@@ -12,31 +10,45 @@ import {
   Avatar,
   useColorModeValue,
   SimpleGrid,
+  Spinner,
 } from "@chakra-ui/react";
 import { useEffect } from "react";
-import { Track } from "../types/Track";
+import { ITrack } from "../types/ITrack";
+import { useDispatch, useSelector } from "react-redux";
+import TRootState from "../types/TRootState";
+import { loadAllTracks } from "../redux/thunks/tracksThunks";
 
 const Home: NextPage = () => {
-  const dispatch = useAppDispatch();
-  const { data, pending, error } = useAppSelector(tracksSelector);
+  const tracks: ITrack[] = useSelector<TRootState, any>(
+    (state) => state.tracks
+  );
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    (async () => {
-      dispatch(getAllTracks());
-    })();
+    dispatch(loadAllTracks);
   }, [dispatch]);
 
   const bgCard = useColorModeValue("white", "gray.900");
   const headingColor = useColorModeValue("gray.700", "white");
 
   return (
-    <Container maxW="container.lg">
-      <Heading as="h2" size="md">
+    <Container maxW="container.lg" pt={4} mb="100px">
+      <Heading as="h2" size="md" textAlign="center">
         de moment és read CSR...
       </Heading>
-      <SimpleGrid minChildWidth="300px" spacing="15px">
-        {data.tracks.map((track: Track) => (
-          <Center key={track.id} py={6}>
+      {!tracks.length && (
+        <Spinner
+          thickness="4px"
+          speed="0.65s"
+          emptyColor="gray.200"
+          color="blue.500"
+          size="xl"
+        />
+      )}
+      <SimpleGrid minChildWidth="300px" spacing="15px" alignItems="start">
+        {tracks.map((track: ITrack) => (
+          <Center key={track.id}>
             <Box
               maxW={"445px"}
               w={"full"}

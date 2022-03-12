@@ -3,7 +3,6 @@ import {
   Flex,
   Button,
   HStack,
-  chakra,
   Link,
   Container,
   Heading,
@@ -13,14 +12,27 @@ import { ArrowRightIcon } from "@chakra-ui/icons";
 import NextLink from "next/link";
 import { DarkModeSwitch } from "../components/DarkModeSwitch";
 import Logo from "../../public/logo.svg";
+import styled from "@emotion/styled";
 
 const CTA = "Login";
 
+const StickyNav = styled(Flex)`
+  position: sticky;
+  z-index: 99999;
+  top: 0;
+  backdrop-filter: saturate(180%) blur(20px);
+  transition: background-color 0.1 ease-in-out;
+  @media only screen and (max-width: 767px) {
+    display: none;
+  }
+`;
+
 const NavBar = () => {
   const bg = useColorModeValue("green", "black");
+
   const color = useColorModeValue("white", "lightgreen");
   return (
-    <chakra.header bg={bg} id="header">
+    <StickyNav bg={bg}>
       <Container maxW="container.lg">
         <Flex w="100%" px="6" py="5" align="center" justify="space-between">
           <HStack spacing={3}>
@@ -33,10 +45,10 @@ const NavBar = () => {
             <NextLink href="/" passHref>
               <Link color={color}>Home</Link>
             </NextLink>
-            <NextLink href="/" passHref>
+            <NextLink href="/favourite-tracks" passHref>
               <Link color={color}>My favourite tracks</Link>
             </NextLink>
-            <NextLink href="/" passHref>
+            <NextLink href="/new-track" passHref>
               <Link color={color}>Add new track</Link>
             </NextLink>
           </HStack>
@@ -50,7 +62,7 @@ const NavBar = () => {
           </HStack>
         </Flex>
       </Container>
-    </chakra.header>
+    </StickyNav>
   );
 };
 
