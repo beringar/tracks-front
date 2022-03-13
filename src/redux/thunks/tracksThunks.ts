@@ -9,14 +9,14 @@ export const loadAllTracksThunk =
     try {
       const response = await fetch(`${APIUrl}tracks`);
       const tracksAPI = await response.json();
-      /* if (!response.ok) {
+      if (!response.ok) {
         toast({
           title: "Error!",
           description: tracksAPI.message,
           status: "error",
         });
         return;
-      } */
+      }
       dispatch(loadAllTracksAction(tracksAPI.tracks));
     } catch (error) {
       toast({

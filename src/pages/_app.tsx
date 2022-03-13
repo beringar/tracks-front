@@ -8,7 +8,6 @@ import { ChakraProvider, ScaleFade } from "@chakra-ui/react";
 import theme from "../theme";
 import type { AppProps } from "next/app";
 import Layout from "../components/Layout/Layout";
-import NavBarMobile from "../components/NavBarMobile/NavBarMobile";
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   return (

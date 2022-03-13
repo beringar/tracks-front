@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { Heading, Container, Text } from "@chakra-ui/react";
+import { Heading, Text } from "@chakra-ui/react";
 
 const AddNewTrackPage: NextPage = () => {
   return (
