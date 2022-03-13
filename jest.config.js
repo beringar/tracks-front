@@ -14,7 +14,6 @@ const customJestConfig = {
     "src/**/*.tsx",
     "src/**/*.ts",
     "!.next/**/*",
-    "!src/app/**/*",
     "!coverage/**/*",
     "!jest.config.js",
     "!next.config.js",
@@ -24,6 +23,7 @@ const customJestConfig = {
     "!**/*.d.ts",
     "!**/node_modules/**",
     "!**/coverage/**",
+    "!**/store/index.ts",
   ],
 };
 

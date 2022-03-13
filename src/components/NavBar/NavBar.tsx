@@ -10,8 +10,8 @@ import {
 } from "@chakra-ui/react";
 import { ArrowRightIcon } from "@chakra-ui/icons";
 import NextLink from "next/link";
-import { DarkModeSwitch } from "../components/DarkModeSwitch";
-import Logo from "../../public/logo.svg";
+import { DarkModeSwitch } from "../DarkModeSwitch/DarkModeSwitch";
+import Logo from "../../../public/logo.svg";
 import styled from "@emotion/styled";
 
 const CTA = "Login";
@@ -42,7 +42,7 @@ const NavBar = () => {
             </Heading>
           </HStack>
           <HStack as="nav" spacing="5">
-            <NextLink href="/" passHref>
+            <NextLink href="/home" passHref>
               <Link color={color}>Home</Link>
             </NextLink>
             <NextLink href="/favourite-tracks" passHref>
@@ -53,7 +53,7 @@ const NavBar = () => {
             </NextLink>
           </HStack>
           <HStack>
-            <NextLink href="/" passHref>
+            <NextLink href="/home" passHref>
               <Button leftIcon={<ArrowRightIcon />} size="sm" variant="ghost">
                 {CTA}
               </Button>

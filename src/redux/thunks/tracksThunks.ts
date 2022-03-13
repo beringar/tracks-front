@@ -1,10 +1,13 @@
-import { Dispatch } from "redux";
-import { loadAlltracks } from "../actions/actionsCreators";
+import { Dispatch } from "react";
+import { ILoadAllTracksAction } from "../../types/IAction";
+import { loadAllTracksAction } from "../actions/tracksActionCreator/tracksActionCreator";
 
 const APIUrl: string = process.env.NEXT_PUBLIC_TRACKS_API_URL;
 
-export const loadAllTracks = async (dispatch: Dispatch) => {
+export const loadAllTracksThunk = async (
+  dispatch: Dispatch<ILoadAllTracksAction>
+) => {
   const response = await fetch(`${APIUrl}tracks`);
   const tracksAPI: any = await response.json();
-  return dispatch(loadAlltracks(tracksAPI.tracks));
+  dispatch(loadAllTracksAction(tracksAPI.tracks));
 };
