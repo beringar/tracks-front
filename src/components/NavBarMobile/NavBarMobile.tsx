@@ -49,7 +49,7 @@ const NavBarMobile = () => {
               <Icon as={FiPlusSquare} w={6} h={6} />
             </Link>
           </NextLink>
-          <NextLink href="/home" passHref>
+          <NextLink href="/my-profile" passHref>
             <Link color={color}>
               <Icon as={FiUser} w={6} h={6} />
             </Link>

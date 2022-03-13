@@ -34,7 +34,7 @@ const NavBar = () => {
   return (
     <StickyNav bg={bg}>
       <Container maxW="container.lg">
-        <Flex w="100%" px="6" py="5" align="center" justify="space-between">
+        <Flex w="100%" px="2" py="5" align="center" justify="space-between">
           <HStack spacing={3}>
             <Image src={Logo.src} h="50px" alt="Tracks Logo" />
             <Heading as="h1" size="lg" color={color}>
@@ -53,7 +53,7 @@ const NavBar = () => {
             </NextLink>
           </HStack>
           <HStack>
-            <NextLink href="/home" passHref>
+            <NextLink href="/my-profile" passHref>
               <Button leftIcon={<ArrowRightIcon />} size="sm" variant="ghost">
                 {CTA}
               </Button>
