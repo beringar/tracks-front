@@ -13,10 +13,10 @@ import {
   Flex,
 } from "@chakra-ui/react";
 import { useEffect } from "react";
-import { ITrack } from "../types/ITrack";
+import { ITrack } from "../../types/ITrack";
 import { useDispatch, useSelector } from "react-redux";
-import TRootState from "../types/TRootState";
-import { loadAllTracksThunk } from "../redux/thunks/tracksThunks";
+import TRootState from "../../types/TRootState";
+import { loadAllTracksThunk } from "../../redux/thunks/tracksThunks";
 
 const HomePage: NextPage = () => {
   const tracks: ITrack[] = useSelector<TRootState, any>(

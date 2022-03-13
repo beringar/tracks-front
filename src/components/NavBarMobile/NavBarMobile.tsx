@@ -34,7 +34,7 @@ const NavBarMobile = () => {
     <StickyNavMobile bg={bg} boxShadow="inner">
       <Container maxW="container.lg">
         <Flex w="100%" px="6" py="5" align="center" justify="space-between">
-          <NextLink href="/" passHref>
+          <NextLink href="/home" passHref>
             <Link color={color}>
               <Icon as={FiHome} w={6} h={6} />
             </Link>
@@ -49,7 +49,7 @@ const NavBarMobile = () => {
               <Icon as={FiPlusSquare} w={6} h={6} />
             </Link>
           </NextLink>
-          <NextLink href="/" passHref>
+          <NextLink href="/home" passHref>
             <Link color={color}>
               <Icon as={FiUser} w={6} h={6} />
             </Link>

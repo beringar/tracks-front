@@ -42,7 +42,7 @@ const NavBar = () => {
             </Heading>
           </HStack>
           <HStack as="nav" spacing="5">
-            <NextLink href="/" passHref>
+            <NextLink href="/home" passHref>
               <Link color={color}>Home</Link>
             </NextLink>
             <NextLink href="/favourite-tracks" passHref>
@@ -53,7 +53,7 @@ const NavBar = () => {
             </NextLink>
           </HStack>
           <HStack>
-            <NextLink href="/" passHref>
+            <NextLink href="/home" passHref>
               <Button leftIcon={<ArrowRightIcon />} size="sm" variant="ghost">
                 {CTA}
               </Button>
