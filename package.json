@@ -21,13 +21,15 @@
     "@fontsource/montserrat-alternates": "^4.5.2",
     "@redux-devtools/extension": "^3.2.2",
     "framer-motion": "^4.1.17",
+    "msw": "^0.39.1",
     "next": "12.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-icons": "^4.3.1",
     "react-redux": "^7.2.6",
     "redux": "^4.1.2",
-    "redux-thunk": "^2.4.1"
+    "redux-thunk": "^2.4.1",
+    "whatwg-fetch": "^3.6.2"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.2",

@@ -2,7 +2,6 @@ import type { NextPage } from "next";
 import Image from "next/image";
 import {
   Heading,
-  Container,
   Box,
   Center,
   Text,
@@ -11,14 +10,15 @@ import {
   useColorModeValue,
   SimpleGrid,
   Spinner,
+  Flex,
 } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { ITrack } from "../types/ITrack";
 import { useDispatch, useSelector } from "react-redux";
 import TRootState from "../types/TRootState";
-import { loadAllTracks } from "../redux/thunks/tracksThunks";
+import { loadAllTracksThunk } from "../redux/thunks/tracksThunks";
 
-const Home: NextPage = () => {
+const HomePage: NextPage = () => {
   const tracks: ITrack[] = useSelector<TRootState, any>(
     (state) => state.tracks
   );
@@ -26,29 +26,36 @@ const Home: NextPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(loadAllTracks);
+    dispatch(loadAllTracksThunk);
   }, [dispatch]);
 
   const bgCard = useColorModeValue("white", "gray.900");
   const headingColor = useColorModeValue("gray.700", "white");
 
   return (
-    <Container maxW="container.lg" pt={4} mb="100px">
-      <Heading as="h2" size="md" textAlign="center">
-        de moment és read CSR...
-      </Heading>
+    <>
       {!tracks.length && (
-        <Spinner
-          thickness="4px"
-          speed="0.65s"
-          emptyColor="gray.200"
-          color="blue.500"
-          size="xl"
-        />
+        <Flex direction="column" align="center" justify="center">
+          <Heading as="h2" size="lg" textAlign="center" p={4}>
+            Loading tracks...
+          </Heading>
+          <Spinner
+            thickness="4px"
+            speed="0.65s"
+            emptyColor="gray.200"
+            color="green.500"
+            boxSize={24}
+          />
+        </Flex>
       )}
-      <SimpleGrid minChildWidth="300px" spacing="15px" alignItems="start">
+      <SimpleGrid
+        as="ul"
+        minChildWidth="300px"
+        spacing="15px"
+        alignItems="start"
+      >
         {tracks.map((track: ITrack) => (
-          <Center key={track.id}>
+          <Center as="li" key={track.id}>
             <Box
               maxW={"445px"}
               w={"full"}
@@ -98,8 +105,8 @@ const Home: NextPage = () => {
           </Center>
         ))}
       </SimpleGrid>
-    </Container>
+    </>
   );
 };
 
-export default Home;
+export default HomePage;

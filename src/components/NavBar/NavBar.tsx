@@ -10,8 +10,8 @@ import {
 } from "@chakra-ui/react";
 import { ArrowRightIcon } from "@chakra-ui/icons";
 import NextLink from "next/link";
-import { DarkModeSwitch } from "../components/DarkModeSwitch";
-import Logo from "../../public/logo.svg";
+import { DarkModeSwitch } from "../DarkModeSwitch/DarkModeSwitch";
+import Logo from "../../../public/logo.svg";
 import styled from "@emotion/styled";
 
 const CTA = "Login";

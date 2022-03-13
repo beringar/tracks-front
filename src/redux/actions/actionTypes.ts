@@ -1,5 +1,5 @@
 const actionTypes = {
-  loadAlltracks: "get-all-tracks",
+  loadAllTracks: "load-all-tracks",
 };
 
 export default actionTypes;

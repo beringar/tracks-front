@@ -1,14 +1,12 @@
 import {
   Flex,
-  Button,
   Link,
   Container,
   useColorModeValue,
   Icon,
 } from "@chakra-ui/react";
-import { ArrowRightIcon } from "@chakra-ui/icons";
 import NextLink from "next/link";
-import { DarkModeSwitch } from "./DarkModeSwitch";
+import { DarkModeSwitch } from "../DarkModeSwitch/DarkModeSwitch";
 
 import styled from "@emotion/styled";
 import { FiHome, FiHeart, FiPlusSquare, FiUser } from "react-icons/fi";
