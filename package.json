@@ -9,7 +9,8 @@
     "test": "jest",
     "test-coverage": "jest --coverage",
     "lint": "next lint",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "vercel-install": "npm install --ignore-engines"
   },
   "dependencies": {
     "@chakra-ui/icons": "^1.1.7",
@@ -21,7 +22,7 @@
     "@fontsource/montserrat-alternates": "^4.5.2",
     "@redux-devtools/extension": "^3.2.2",
     "framer-motion": "^4.1.17",
-    "msw": "^0.38.2",
+    "msw": "^0.39.1",
     "next": "12.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
