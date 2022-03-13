@@ -7,7 +7,7 @@ const AddNewTrackPage: NextPage = () => {
       <Heading as="h1" size="lg" textAlign="center">
         Add new track
       </Heading>
-      <Text>
+      <Text textAlign="center">
         (this page will be shown and accessible only to logged in users)
       </Text>
     </Container>

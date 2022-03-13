@@ -7,7 +7,9 @@ const MyFavouriteTracksPage: NextPage = () => {
       <Heading as="h1" size="lg" textAlign="center">
         My favourite tracks
       </Heading>
-      <Text>(will be shown and accessible only to logged in users)</Text>
+      <Text textAlign="center">
+        (will be shown and accessible only to logged in users)
+      </Text>
     </Container>
   );
 };
