@@ -11,6 +11,7 @@ import {
   SimpleGrid,
   Spinner,
   Flex,
+  useToast,
 } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { ITrack } from "../../types/ITrack";
@@ -24,10 +25,11 @@ const HomePage: NextPage = () => {
   );
 
   const dispatch = useDispatch();
+  const toast = useToast();
 
   useEffect(() => {
-    dispatch(loadAllTracksThunk);
-  }, [dispatch]);
+    dispatch(loadAllTracksThunk(toast));
+  }, [dispatch, toast]);
 
   const bgCard = useColorModeValue("white", "gray.900");
   const headingColor = useColorModeValue("gray.700", "white");

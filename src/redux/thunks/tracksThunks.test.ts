@@ -35,12 +35,13 @@ describe("Given a loadAllTracksThunk function", () => {
         },
       ];
       const dispatch = jest.fn();
+      const toast = jest.fn();
       const action: ILoadAllTracksAction = {
         type: actionTypes.loadAllTracks,
         tracks,
       };
 
-      await loadAllTracksThunk(dispatch);
+      await loadAllTracksThunk(toast)(dispatch);
 
       expect(dispatch).toHaveBeenCalledWith(action);
     });
