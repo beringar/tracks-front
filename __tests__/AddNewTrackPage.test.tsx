@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
-import store from "../../redux/store";
-import AddNewTrackPage from "./";
+import store from "../src/redux/store";
+import AddNewTrackPage from "../src/pages/new-track";
 
 describe("Given a AddNewTrackPage component", () => {
   describe("When it's rendered", () => {
