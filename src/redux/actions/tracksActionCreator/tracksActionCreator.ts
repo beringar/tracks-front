@@ -1,8 +1,7 @@
 import actionTypes from "../actionTypes";
 import { Track } from "../../../types/Track";
-import { ILoadAllTracksAction } from "../../../types/IAction";
 
-export const loadAllTracksAction = (tracks: Track[]): ILoadAllTracksAction => ({
+export const loadAllTracksAction = (tracks: Track[]) => ({
   type: actionTypes.loadAllTracks,
   tracks,
 });
