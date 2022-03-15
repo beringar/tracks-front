@@ -4,4 +4,5 @@ import tracksReducer from "./tracksReducer";
 const rootReducer = combineReducers({
   tracks: tracksReducer,
 });
+
 export default rootReducer;
