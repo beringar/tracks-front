@@ -23,9 +23,7 @@ interface MyTracksItemProps {
 }
 
 const MyTracksItem = ({ name, id }: MyTracksItemProps): JSX.Element => {
-  const onClickDelete = () => {
-    console.log(id);
-  };
+  const onClickDelete = () => {};
 
   return (
     <ListItem>

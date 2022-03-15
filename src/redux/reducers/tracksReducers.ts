@@ -14,7 +14,7 @@ const tracksReducers = (
       break;
 
     case actionTypes.loadAllTracks:
-      newTracks = [...action.products];
+      newTracks = [...action.tracks];
       break;
 
     default:

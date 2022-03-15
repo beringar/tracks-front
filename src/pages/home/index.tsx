@@ -11,23 +11,14 @@ import {
   SimpleGrid,
   Spinner,
   Flex,
-  useToast,
 } from "@chakra-ui/react";
-import { useEffect } from "react";
 import { Track } from "../../types/Track";
-import { useDispatch, useSelector } from "react-redux";
-import TRootState from "../../types/TRootState";
+import { useSelector } from "react-redux";
+import { RootState, wrapper } from "../../redux/store";
 import { loadAllTracksThunk } from "../../redux/thunks/tracksThunks";
 
-const HomePage: NextPage = () => {
-  const tracks: Track[] = useSelector<TRootState, any>((state) => state.tracks);
-
-  const dispatch = useDispatch();
-  const toast = useToast();
-
-  useEffect(() => {
-    dispatch(loadAllTracksThunk(toast));
-  }, [dispatch, toast]);
+const HomePage: NextPage = (): JSX.Element => {
+  const tracks: Track[] = useSelector((state: RootState) => state.tracks);
 
   const bgCard = useColorModeValue("white", "gray.900");
   const headingColor = useColorModeValue("gray.700", "white");
@@ -110,3 +101,12 @@ const HomePage: NextPage = () => {
 };
 
 export default HomePage;
+
+export const getServerSideProps = wrapper.getServerSideProps(
+  (store) => async (context) => {
+    await loadAllTracksThunk(store.dispatch);
+    return {
+      props: {},
+    };
+  }
+);
