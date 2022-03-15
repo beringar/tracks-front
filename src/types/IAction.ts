@@ -1,9 +1,9 @@
-import { ITrack } from "./ITrack";
+import { Track } from "./Track";
 
 export interface Action {
   type: string;
 }
 
 export interface ILoadAllTracksAction extends Action {
-  tracks: ITrack[];
+  tracks: Track[];
 }

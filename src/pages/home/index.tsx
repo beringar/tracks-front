@@ -14,15 +14,13 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { useEffect } from "react";
-import { ITrack } from "../../types/ITrack";
+import { Track } from "../../types/Track";
 import { useDispatch, useSelector } from "react-redux";
 import TRootState from "../../types/TRootState";
 import { loadAllTracksThunk } from "../../redux/thunks/tracksThunks";
 
 const HomePage: NextPage = () => {
-  const tracks: ITrack[] = useSelector<TRootState, any>(
-    (state) => state.tracks
-  );
+  const tracks: Track[] = useSelector<TRootState, any>((state) => state.tracks);
 
   const dispatch = useDispatch();
   const toast = useToast();
@@ -56,7 +54,7 @@ const HomePage: NextPage = () => {
         spacing="15px"
         alignItems="start"
       >
-        {tracks.map((track: ITrack) => (
+        {tracks.map((track: Track) => (
           <Center as="li" key={track.id}>
             <Box
               maxW={"445px"}

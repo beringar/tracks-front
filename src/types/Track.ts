@@ -1,4 +1,4 @@
-export interface ITrack {
+export interface Track {
   name: string;
   refuge: string;
   difficulty: string;

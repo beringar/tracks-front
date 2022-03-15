@@ -1,9 +1,9 @@
 import { AnyAction } from "redux";
 import { ILoadAllTracksAction } from "../../types/IAction";
-import { ITrack } from "../../types/ITrack";
+import { Track } from "../../types/Track";
 import actionTypes from "../actions/actionTypes";
 
-const tracksReducer = (currentState: ITrack[] | [] = [], action: AnyAction) => {
+const tracksReducer = (currentState: Track[] | [] = [], action: AnyAction) => {
   let newState;
   switch (action.type) {
     case actionTypes.loadAllTracks:
