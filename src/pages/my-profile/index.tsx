@@ -1,9 +1,9 @@
 import type { NextPage } from "next";
 import { Heading } from "@chakra-ui/react";
 import MyTracksList from "../../components/MyTracksList/MyTracksList";
-import { ITrack } from "../../types/ITrack";
+import { Track } from "../../types/Track";
 
-const tracks: ITrack[] = [
+const tracks: Track[] = [
   {
     name: "Tuc de Sendrós per llac de Saboredo",
     refuge: "Saboredo",

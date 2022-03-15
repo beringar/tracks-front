@@ -1,11 +1,20 @@
-import { composeWithDevTools } from "@redux-devtools/extension";
 import thunk from "redux-thunk";
-import { createStore, applyMiddleware } from "redux";
+import { createStore, applyMiddleware, Store } from "redux";
 import rootReducer from "../reducers";
+import { composeWithDevTools } from "@redux-devtools/extension";
+import { createWrapper, Context } from "next-redux-wrapper";
+import { Track } from "../../types/Track";
 
-const store = createStore(
-  rootReducer,
-  composeWithDevTools(applyMiddleware(thunk))
-);
+interface State {
+  tracks: Track[];
+}
 
-export default store;
+const makeStore = (context: Context) =>
+  createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
+
+export const wrapper = createWrapper<Store<State>>(makeStore, {
+  debug: true,
+});
+
+export type AppDispatch = Store["dispatch"];
+export type RootState = ReturnType<Store["getState"]>;

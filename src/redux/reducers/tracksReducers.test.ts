@@ -1,11 +1,11 @@
-import { ITrack } from "../../types/ITrack";
+import { Track } from "../../types/Track";
 import actionTypes from "../actions/actionTypes";
-import tracksReducer from "./tracksReducer";
+import tracksReducers from "./tracksReducers";
 
-describe("Given a tracksReducer function", () => {
+describe("Given a tracksReducers function", () => {
   describe("When it is called with an empty state and the loadAllTracks action with an array of tracks", () => {
     test("Then it should return a new state containing the passed array of tracks", () => {
-      const currentState: ITrack[] = [];
+      const currentState: Track[] = [];
       const tracksTest = [
         {
           name: "Tuc de Sendrós per llac de Saboredo",
@@ -39,20 +39,20 @@ describe("Given a tracksReducer function", () => {
         tracks: tracksTest,
       };
 
-      const newState = tracksReducer(currentState, action);
+      const newState = tracksReducers(currentState, action);
 
       expect(newState).toEqual(tracksTest);
     });
   });
   describe("When it is called with an empty state and the loadAllTracks action without a tracks array", () => {
     test("Then it should return the new state with an array of current tracks", () => {
-      const currentState: ITrack[] = [];
+      const currentState: Track[] = [];
 
       const action = {
         type: actionTypes.loadAllTracks,
       };
 
-      const newState = tracksReducer(currentState, action);
+      const newState = tracksReducers(currentState, action);
 
       expect(newState).toEqual(currentState);
     });
@@ -66,7 +66,7 @@ describe("Given a tracksReducer function", () => {
         type: null,
       };
 
-      const newState = tracksReducer(currentState, action);
+      const newState = tracksReducers(currentState, action);
 
       expect(newState).toEqual(currentState);
     });
