@@ -14,7 +14,11 @@ const tracksReducers = (
       break;
 
     case actionTypes.loadAllTracks:
-      newTracks = [...action.tracks];
+      if (action.tracks) {
+        newTracks = [...action.tracks];
+      } else {
+        newTracks = [...currentTracks];
+      }
       break;
 
     default:

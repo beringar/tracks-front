@@ -1,4 +1,3 @@
-import { ILoadAllTracksAction } from "../../types/IAction";
 import actionTypes from "../actions/actionTypes";
 import { loadAllTracksThunk } from "./tracksThunks";
 
@@ -35,13 +34,13 @@ describe("Given a loadAllTracksThunk function", () => {
         },
       ];
       const dispatch = jest.fn();
-      const toast = jest.fn();
-      const action: ILoadAllTracksAction = {
+
+      const action = {
         type: actionTypes.loadAllTracks,
         tracks,
       };
 
-      await loadAllTracksThunk(toast)(dispatch);
+      await loadAllTracksThunk(dispatch);
 
       expect(dispatch).toHaveBeenCalledWith(action);
     });
