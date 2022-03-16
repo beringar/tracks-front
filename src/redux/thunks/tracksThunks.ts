@@ -14,9 +14,16 @@ export const loadAllTracksThunk = async (dispatch: AppDispatch) => {
 };
 
 export const deleteTrackThunk =
-  (id: string) => async (dispatch: AppDispatch) => {
+  (toast, id: string) => async (dispatch: AppDispatch) => {
     const response = await fetch(`${APIUrl}tracks/${id}`, { method: "DELETE" });
     if (response.ok) {
       dispatch(deleteTrackAction(id));
+      toast({
+        title: "Track deleted successfully",
+        description: `Track #${id} removed from database`,
+        status: "success",
+        duration: 9000,
+        isClosable: true,
+      });
     }
   };

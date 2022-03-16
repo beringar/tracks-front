@@ -5,9 +5,13 @@ import {
   HStack,
   Flex,
   Box,
+  useToast,
 } from "@chakra-ui/react";
 import { FiEdit, FiEye, FiTrash2 } from "react-icons/fi";
 import styled from "@emotion/styled";
+import { useDispatch } from "react-redux";
+import { deleteTrackThunk } from "../../redux/thunks/tracksThunks";
+import React from "react";
 
 const TrackItemContainer = styled(Flex)`
   justify-content: space-between;
@@ -20,14 +24,15 @@ const TrackItemContainer = styled(Flex)`
 interface MyTracksItemProps {
   name: string;
   id: string;
-  actionDelete: () => void;
 }
 
-const MyTracksItem = ({
-  name,
-  id,
-  actionDelete,
-}: MyTracksItemProps): JSX.Element => {
+const MyTracksItem = ({ name, id }: MyTracksItemProps): JSX.Element => {
+  const dispatch = useDispatch();
+  const toast = useToast();
+
+  const deleteTrack = (toast, id: string): void => {
+    dispatch(deleteTrackThunk(toast, id));
+  };
   return (
     <ListItem>
       <Box p={5} shadow="md" borderWidth="1px" borderRadius="lg">
@@ -51,7 +56,9 @@ const MyTracksItem = ({
               aria-label="Remove track"
               icon={<FiTrash2 />}
               isRound
-              onClick={actionDelete}
+              onClick={(event: React.MouseEvent) => {
+                deleteTrack(toast, id);
+              }}
             />
           </HStack>
         </TrackItemContainer>
