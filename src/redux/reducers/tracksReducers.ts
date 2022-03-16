@@ -21,6 +21,10 @@ const tracksReducers = (
       }
       break;
 
+    case actionTypes.deleteTrack:
+      newTracks = currentTracks.filter((track) => track.id !== action.id);
+      break;
+
     default:
       newTracks = [...currentTracks];
       break;
