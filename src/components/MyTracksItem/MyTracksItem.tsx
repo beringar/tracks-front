@@ -20,11 +20,14 @@ const TrackItemContainer = styled(Flex)`
 interface MyTracksItemProps {
   name: string;
   id: string;
+  actionDelete: () => void;
 }
 
-const MyTracksItem = ({ name, id }: MyTracksItemProps): JSX.Element => {
-  const onClickDelete = () => {};
-
+const MyTracksItem = ({
+  name,
+  id,
+  actionDelete,
+}: MyTracksItemProps): JSX.Element => {
   return (
     <ListItem>
       <Box p={5} shadow="md" borderWidth="1px" borderRadius="lg">
@@ -48,7 +51,7 @@ const MyTracksItem = ({ name, id }: MyTracksItemProps): JSX.Element => {
               aria-label="Remove track"
               icon={<FiTrash2 />}
               isRound
-              onClick={onClickDelete}
+              onClick={actionDelete}
             />
           </HStack>
         </TrackItemContainer>
