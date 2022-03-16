@@ -19,7 +19,7 @@ export const deleteTrackThunk =
     if (response.ok) {
       dispatch(deleteTrackAction(id));
       toast({
-        title: "Track deleted successfully",
+        title: "Track DELETED!",
         description: `Track #${id} removed from database`,
         status: "success",
         duration: 9000,
