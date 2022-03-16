@@ -6,9 +6,9 @@ import {
   Stack,
   Heading,
   Avatar,
+  Image,
 } from "@chakra-ui/react";
 import { Track } from "../../types/Track";
-import Image from "next/image";
 
 interface TrackCardProps {
   track: Track;
@@ -39,7 +39,13 @@ const TrackCard = ({
           mb={6}
           pos={"relative"}
         >
-          <Image src={image} alt={"gasimba"} layout={"fill"} />
+          <Image
+            src={image}
+            alt={"gasimba"}
+            objectFit={"cover"}
+            h={"210px"}
+            w={"full"}
+          />
         </Box>
         <Stack>
           <Text
