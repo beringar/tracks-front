@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import { Heading, Text } from "@chakra-ui/react";
+import { wrapper } from "../../redux/store";
 
 const AddNewTrackPage: NextPage = () => {
   return (
