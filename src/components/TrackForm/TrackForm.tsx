@@ -15,6 +15,7 @@ import {
   Stack,
   Divider,
   Text,
+  Switch,
 } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import AlertInfo from "../AlertInfo/AltertInfo";
@@ -41,6 +42,7 @@ const TrackForm = (): JSX.Element => {
       <FormControl isRequired mb={3}>
         <FormLabel>Track name</FormLabel>
         <Input
+          variant="filled"
           type="text"
           placeholder="tip: add the names of departure and arrival spots"
           {...register("name", {
@@ -66,14 +68,22 @@ const TrackForm = (): JSX.Element => {
         <FormControl isRequired>
           <FormLabel>refuge of departure</FormLabel>
           <Select
+            variant="filled"
             placeholder="select one..."
             {...register("refuge", {
               required: "you have to select a refuge",
             })}
           >
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
+            <option value="mallafre">Refugi Ernest Mallafré</option>
+            <option value="gerdar">Refugi del Gerdar</option>
+            <option value="amitges">Refugi d&apos;Amitges</option>
+            <option value="jmblanc">Refugi Josep Maria Blanc</option>
+            <option value="colomers">Refugi de Colomèrs</option>
+            <option value="colomina">Refugi Colomina</option>
+            <option value="saboredo">Refugi de Saboredo</option>
+            <option value="restanca">Refugi de Restanca</option>
+            <option value="ventosa">Refugi de Ventosa i Calvell</option>
+            <option value="pla">Refugi del Pla</option>
           </Select>
           {errors.refuge && <AlertInfo title={errors.refuge.message} />}
         </FormControl>
@@ -81,9 +91,15 @@ const TrackForm = (): JSX.Element => {
           <FormLabel as="legend">track difficulty</FormLabel>
           <RadioGroup>
             <HStack spacing="24px">
-              <Radio value="low">low</Radio>
-              <Radio value="normal">normal</Radio>
-              <Radio value="high">high</Radio>
+              <Radio value="low" colorScheme="green">
+                low
+              </Radio>
+              <Radio value="normal" colorScheme="yellow">
+                normal
+              </Radio>
+              <Radio value="high" colorScheme="red">
+                high
+              </Radio>
             </HStack>
           </RadioGroup>
           <FormHelperText>
@@ -91,6 +107,12 @@ const TrackForm = (): JSX.Element => {
           </FormHelperText>
         </FormControl>
       </Stack>
+      <FormControl display="flex" alignItems="center" mb={6}>
+        <FormLabel htmlFor="kidsswitch" mb="0">
+          Kids friendly
+        </FormLabel>
+        <Switch id="kidsswitch" colorScheme="pink" />
+      </FormControl>
       <Text fontSize="md">
         form in development....(submit does nothing, validation name and refuge
         OK. TODO: add icons difficulty as SVG. Add Kids switch true/false // add
