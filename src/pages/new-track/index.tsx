@@ -1,16 +1,24 @@
 import type { NextPage } from "next";
-import { Heading, Text } from "@chakra-ui/react";
+import { Container, Heading, Text } from "@chakra-ui/react";
 import RegisterForm from "../../components/RegisterForm/RegisterForm";
+import TrackForm from "../../components/TrackForm/TrackForm";
 
 const AddNewTrackPage: NextPage = (): JSX.Element => {
   return (
     <>
-      <Heading as="h1" size="lg" textAlign="center">
-        Add new track
-      </Heading>
-      <Text textAlign="center">
-        (this page will be shown and accessible only to logged in users)
-      </Text>
+      <Container
+        w={"full"}
+        maxW="3xl"
+        centerContent
+        m={"0 auto"}
+        p={0}
+        alignItems="stretch"
+      >
+        <Heading as="h1" size="md" mb={3} color={"green"}>
+          Add new track
+        </Heading>
+        <TrackForm />
+      </Container>
     </>
   );
 };
