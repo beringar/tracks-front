@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
 import { Heading, Text } from "@chakra-ui/react";
-import { wrapper } from "../../redux/store";
+import RegisterForm from "../../components/RegisterForm/RegisterForm";
 
-const AddNewTrackPage: NextPage = () => {
+const AddNewTrackPage: NextPage = (): JSX.Element => {
   return (
     <>
       <Heading as="h1" size="lg" textAlign="center">
