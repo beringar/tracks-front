@@ -35,6 +35,7 @@ const TrackForm = (): JSX.Element => {
       duration: 3000,
       isClosable: true,
     });
+    console.log(data);
   };
 
   return (
@@ -87,17 +88,31 @@ const TrackForm = (): JSX.Element => {
           </Select>
           {errors.refuge && <AlertInfo title={errors.refuge.message} />}
         </FormControl>
-        <FormControl as="fieldset" isRequired>
+        <FormControl
+          as="fieldset"
+          isRequired
+          {...register("difficulty", {
+            required: "you have to select a level of difficulty",
+          })}
+        >
           <FormLabel as="legend">track difficulty</FormLabel>
           <RadioGroup>
             <HStack spacing="24px">
-              <Radio value="low" colorScheme="green">
+              <Radio
+                value="low"
+                colorScheme="green"
+                {...register("difficulty")}
+              >
                 low
               </Radio>
-              <Radio value="normal" colorScheme="yellow">
+              <Radio
+                value="normal"
+                colorScheme="yellow"
+                {...register("difficulty")}
+              >
                 normal
               </Radio>
-              <Radio value="high" colorScheme="red">
+              <Radio value="high" colorScheme="red" {...register("difficulty")}>
                 high
               </Radio>
             </HStack>
@@ -105,13 +120,14 @@ const TrackForm = (): JSX.Element => {
           <FormHelperText>
             Be honest, please! Show respect to the Mountains
           </FormHelperText>
+          {errors.difficulty && <AlertInfo title={errors.difficulty.message} />}
         </FormControl>
       </Stack>
       <FormControl display="flex" alignItems="center" mb={6}>
         <FormLabel htmlFor="kidsswitch" mb="0">
           Kids friendly
         </FormLabel>
-        <Switch id="kidsswitch" colorScheme="pink" />
+        <Switch id="kidsswitch" colorScheme="pink" {...register("kids")} />
       </FormControl>
       <Text fontSize="md">
         form in development....(submit does nothing, validation name and refuge
