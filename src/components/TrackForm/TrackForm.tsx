@@ -18,6 +18,7 @@ import {
   Switch,
   CheckboxGroup,
   Checkbox,
+  Textarea,
 } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import AlertInfo from "../AlertInfo/AltertInfo";
@@ -43,8 +44,9 @@ const TrackForm = (): JSX.Element => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} autoComplete="off" noValidate>
       <FormControl isRequired mb={3}>
-        <FormLabel>Track name</FormLabel>
+        <FormLabel htmlFor="name">Track name</FormLabel>
         <Input
+          id="name"
           variant="filled"
           type="text"
           placeholder="tip: add the names of departure and arrival spots"
@@ -69,8 +71,9 @@ const TrackForm = (): JSX.Element => {
         mb={3}
       >
         <FormControl isRequired>
-          <FormLabel>refuge of departure</FormLabel>
+          <FormLabel htmlFor="refuge">refuge of departure</FormLabel>
           <Select
+            id="refuge"
             variant="filled"
             placeholder="select one..."
             {...register("refuge", {
@@ -91,14 +94,13 @@ const TrackForm = (): JSX.Element => {
           {errors.refuge && <AlertInfo title={errors.refuge.message} />}
         </FormControl>
         <FormControl
-          as="fieldset"
           isRequired
           {...register("difficulty", {
             required: "you have to select a level of difficulty",
           })}
         >
-          <FormLabel as="legend">track difficulty</FormLabel>
-          <RadioGroup>
+          <FormLabel htmlFor="difficulty">track difficulty</FormLabel>
+          <RadioGroup id="difficulty">
             <HStack spacing="24px">
               <Radio
                 value="low"
@@ -125,7 +127,7 @@ const TrackForm = (): JSX.Element => {
           {errors.difficulty && <AlertInfo title={errors.difficulty.message} />}
         </FormControl>
       </Stack>
-      <FormControl display="flex" alignItems="center" mb={6}>
+      <FormControl display="flex" alignItems="center" mb={3}>
         <FormLabel htmlFor="kidsswitch" mb="0">
           Kids friendly
         </FormLabel>
@@ -134,6 +136,7 @@ const TrackForm = (): JSX.Element => {
       <FormControl
         as="fieldset"
         isRequired
+        mb={3}
         {...register("seasons", {
           required: "you have to select at least one season",
         })}
@@ -157,6 +160,29 @@ const TrackForm = (): JSX.Element => {
         </CheckboxGroup>
         {errors.seasons && <AlertInfo title={errors.seasons.message} />}
       </FormControl>
+      <FormControl isRequired>
+        <FormLabel htmlFor="description">description</FormLabel>
+        <Textarea
+          id="description"
+          placeholder="decribe here your track (main waypoints, difficulties, must see spots...)"
+          resize="vertical"
+          variant="filled"
+          h={300}
+          {...register("description", {
+            required: "Please enter a track description",
+            minLength: {
+              value: 60,
+              message: "Track description is too short, be original!",
+            },
+            maxLength: {
+              value: 2000,
+              message: "Too long! Leave some surpises to other hikkers!",
+            },
+          })}
+        />
+        {errors.description && <AlertInfo title={errors.description.message} />}
+      </FormControl>
+
       <Text fontSize="md">
         form in development....(submit does nothing, validation name and refuge
         OK. TODO: add icons difficulty as SVG. Add Kids switch true/false // add
