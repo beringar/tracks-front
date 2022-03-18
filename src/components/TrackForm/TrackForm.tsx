@@ -1,8 +1,6 @@
 import {
-  VStack,
   Input,
   useToast,
-  Box,
   Button,
   Center,
   FormControl,
@@ -13,12 +11,11 @@ import {
   Radio,
   FormHelperText,
   Stack,
-  Divider,
-  Text,
   Switch,
   CheckboxGroup,
   Checkbox,
   Textarea,
+  Icon,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -46,7 +43,7 @@ const TrackForm = (): JSX.Element => {
     formData.append("description", data.description);
     formData.append("user", "6228d9e2d3b484d4871608ee");
     formData.append("image", data.image[0]);
-    formData.append("gpx", data.image[0]);
+    formData.append("gpx", data.gpx[0]);
 
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_TRACKS_API_URL}tracks/new`,
@@ -221,6 +218,9 @@ const TrackForm = (): JSX.Element => {
       <FormControl isRequired mb={3}>
         <FormLabel htmlFor="image">cover image</FormLabel>
         <Input
+          size="lg"
+          fontSize="md"
+          py={2}
           id="image"
           name="image"
           variant="filled"
@@ -228,16 +228,44 @@ const TrackForm = (): JSX.Element => {
           placeholder="choose a nice picture..."
           {...register("image", {
             required: "Please upload image file",
+            validate: {
+              lessThan10MB: (files) =>
+                files[0]?.size < 500000 ||
+                "Too big! Maximum size allowed is 500 KB",
+              acceptedFormats: (files) =>
+                ["image/jpeg", "image/png", "image/gif"].includes(
+                  files[0]?.type
+                ) ||
+                "Wrong image extension! Only PNG, JPEG or GIF are accepted",
+            },
           })}
         />
         {errors.image && <AlertInfo title={errors.image.message} />}
       </FormControl>
-
-      <Text fontSize="md">
-        form in development....(submit does nothing, validation name and refuge
-        OK. TODO: add icons difficulty as SVG. Add Kids switch true/false // add
-        textarea description // add fileUpload image and GPX file)
-      </Text>
+      <FormControl isRequired mb={3}>
+        <FormLabel htmlFor="image">GPX track file</FormLabel>
+        <Input
+          size="lg"
+          fontSize="md"
+          py={2}
+          id="gpx"
+          name="gpx"
+          variant="filled"
+          type="file"
+          {...register("gpx", {
+            required: "Please upload GPX file",
+            validate: {
+              lessThan10MB: (files) =>
+                files[0]?.size < 500000 ||
+                "Too big! Maximum size allowed is 500 KB",
+              acceptedFormats: (files) =>
+                files[0]?.name.split(".").pop().toLowerCase() === "gpx" ||
+                "Wrong file extension! Only GPX files are accepted",
+            },
+          })}
+        />
+        {errors.gpx && <AlertInfo title={errors.gpx.message} />}
+      </FormControl>
       <Center>
         <Button
           borderRadius="md"
