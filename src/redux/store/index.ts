@@ -12,8 +12,8 @@ interface State {
 const makeStore = (context: Context) =>
   createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 
-export const wrapper = createWrapper<Store<State>>(makeStore, {
-  debug: true,
+export const wrapper = createWrapper<Store>(makeStore, {
+  debug: false,
 });
 
 export type AppDispatch = Store["dispatch"];
