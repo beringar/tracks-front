@@ -14,7 +14,7 @@ const AddNewTrackPage: NextPage = (): JSX.Element => {
         p={0}
         alignItems="stretch"
       >
-        <Heading as="h1" size="md" mb={3} color={"green"}>
+        <Heading as="h1" size="md" mb={3}>
           Add new track
         </Heading>
         <TrackForm />
