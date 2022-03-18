@@ -16,6 +16,8 @@ import {
   Divider,
   Text,
   Switch,
+  CheckboxGroup,
+  Checkbox,
 } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import AlertInfo from "../AlertInfo/AltertInfo";
@@ -128,6 +130,32 @@ const TrackForm = (): JSX.Element => {
           Kids friendly
         </FormLabel>
         <Switch id="kidsswitch" colorScheme="pink" {...register("kids")} />
+      </FormControl>
+      <FormControl
+        as="fieldset"
+        isRequired
+        {...register("seasons", {
+          required: "you have to select at least one season",
+        })}
+      >
+        <FormLabel as="legend">recommended seasons</FormLabel>
+        <CheckboxGroup colorScheme="green">
+          <HStack spacing={4}>
+            <Checkbox value="spring" {...register("seasons")}>
+              spring
+            </Checkbox>
+            <Checkbox value="summer" {...register("seasons")}>
+              summer
+            </Checkbox>
+            <Checkbox value="autumn" {...register("seasons")}>
+              autumn
+            </Checkbox>
+            <Checkbox value="winter" {...register("seasons")}>
+              winter
+            </Checkbox>
+          </HStack>
+        </CheckboxGroup>
+        {errors.seasons && <AlertInfo title={errors.seasons.message} />}
       </FormControl>
       <Text fontSize="md">
         form in development....(submit does nothing, validation name and refuge
