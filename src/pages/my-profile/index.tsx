@@ -9,12 +9,18 @@ import { loadAllTracksThunk } from "../../redux/thunks/tracksThunks";
 const MyProfilePage: NextPage = (): JSX.Element => {
   const tracks: Track[] = useSelector((state: RootState) => state.tracks);
 
+  const sortedTracks = tracks
+    .slice()
+    .sort(
+      (a: Track, b: Track) => +new Date(b.createdAt) - +new Date(a.createdAt)
+    );
+
   return (
     <>
       <Heading as="h1" size="md" mb={3}>
         My Tracks
       </Heading>
-      <MyTracksList tracks={tracks} />
+      <MyTracksList tracks={sortedTracks} />
     </>
   );
 };

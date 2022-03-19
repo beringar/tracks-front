@@ -9,6 +9,12 @@ import TrackCard from "../../components/TrackCard/TrackCard";
 const HomePage: NextPage = (): JSX.Element => {
   const tracks: Track[] = useSelector((state: RootState) => state.tracks);
 
+  const sortedTracks = tracks
+    .slice()
+    .sort(
+      (a: Track, b: Track) => +new Date(b.createdAt) - +new Date(a.createdAt)
+    );
+
   return (
     <>
       <SimpleGrid
@@ -17,7 +23,7 @@ const HomePage: NextPage = (): JSX.Element => {
         spacing="15px"
         alignItems="start"
       >
-        {tracks.map((track: Track) => (
+        {sortedTracks.map((track: Track) => (
           <TrackCard key={track.id} track={track} />
         ))}
       </SimpleGrid>
