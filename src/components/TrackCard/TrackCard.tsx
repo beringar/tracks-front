@@ -8,6 +8,7 @@ import {
   Avatar,
   Image,
 } from "@chakra-ui/react";
+import TimeAgo from "timeago-react";
 import { Track } from "../../types/Track";
 
 interface TrackCardProps {
@@ -15,7 +16,7 @@ interface TrackCardProps {
 }
 
 const TrackCard = ({
-  track: { id, image, difficulty, name, description },
+  track: { id, image, name, description, createdAt },
 }: TrackCardProps): JSX.Element => {
   const bgCard = useColorModeValue("white", "gray.900");
   const headingColor = useColorModeValue("gray.700", "white");
@@ -55,7 +56,7 @@ const TrackCard = ({
             fontSize={"sm"}
             letterSpacing={1.1}
           >
-            {difficulty}
+            <TimeAgo datetime={createdAt} />
           </Text>
           <Heading color={headingColor} fontSize={"2xl"} fontFamily={"body"}>
             {name}
