@@ -9,4 +9,6 @@ export interface Track {
   gpx: string;
   id: string;
   user: string;
+  createdAt: string;
+  updatedAt: string;
 }
