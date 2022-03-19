@@ -127,16 +127,18 @@ const TrackForm = (): JSX.Element => {
               required: "you have to select a refuge",
             })}
           >
-            <option value="mallafre">Refugi Ernest Mallafré</option>
-            <option value="gerdar">Refugi del Gerdar</option>
-            <option value="amitges">Refugi d&apos;Amitges</option>
-            <option value="jmblanc">Refugi Josep Maria Blanc</option>
-            <option value="colomers">Refugi de Colomèrs</option>
-            <option value="colomina">Refugi Colomina</option>
-            <option value="saboredo">Refugi de Saboredo</option>
-            <option value="restanca">Refugi de Restanca</option>
-            <option value="ventosa">Refugi de Ventosa i Calvell</option>
-            <option value="pla">Refugi del Pla</option>
+            <option value="Mallafré">Refugi Ernest Mallafré</option>
+            <option value="Gerdar">Refugi del Gerdar</option>
+            <option value="Amitges">Refugi d&apos;Amitges</option>
+            <option value="Josep Maria Blanc">Refugi Josep Maria Blanc</option>
+            <option value="Colomèrs">Refugi de Colomèrs</option>
+            <option value="Colomina">Refugi Colomina</option>
+            <option value="Saboredo">Refugi de Saboredo</option>
+            <option value="Restanca">Refugi de Restanca</option>
+            <option value="Ventosa i Calvell">
+              Refugi de Ventosa i Calvell
+            </option>
+            <option value="Pla de la Font">Refugi del Pla de la Font</option>
           </Select>
           {errors.refuge && <AlertInfo title={errors.refuge.message} />}
         </FormControl>
