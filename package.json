@@ -32,6 +32,7 @@
     "react-redux": "^7.2.6",
     "redux": "^4.1.2",
     "redux-thunk": "^2.4.1",
+    "timeago-react": "^3.0.4",
     "whatwg-fetch": "^3.6.2"
   },
   "devDependencies": {
