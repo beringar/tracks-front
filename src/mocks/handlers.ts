@@ -41,7 +41,7 @@ export const handlers = [
     }
   ),
   rest.delete(
-    `${process.env.NEXT_PUBLIC_WALLAPLOP}tracks/6229bdbccf53a1fa6ac36821`,
+    `${process.env.NEXT_PUBLIC_TRACKS_API_URL}tracks/6229bdbccf53a1fa6ac36821`,
     (req, res, ctx) => res(ctx.status(200), ctx.json({}))
   ),
 ];
