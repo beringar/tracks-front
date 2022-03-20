@@ -1,0 +1,614 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders homepage unchanged 1`] = `
+<div>
+  <div
+    class="chakra-container css-1fffh61"
+  >
+    <h1
+      class="chakra-heading css-h82jag"
+    >
+      Add new track
+    </h1>
+    <form
+      autocomplete="off"
+      novalidate=""
+    >
+      <div
+        class="chakra-form-control css-1itv5e3"
+        role="group"
+      >
+        <label
+          class="chakra-form__label css-uvho5g"
+          for="name"
+          id="field-1-label"
+        >
+          track name
+          <span
+            aria-hidden="true"
+            class="chakra-form__required-indicator css-0"
+            role="presentation"
+          >
+            *
+          </span>
+        </label>
+        <input
+          aria-required="true"
+          class="chakra-input css-0"
+          id="name"
+          name="name"
+          placeholder="tip: add the names of departure and arrival spots"
+          required=""
+          type="text"
+        />
+      </div>
+      <div
+        class="chakra-stack css-1mzfrnq"
+      >
+        <div
+          class="chakra-form-control css-0"
+          role="group"
+        >
+          <label
+            class="chakra-form__label css-uvho5g"
+            for="refuge"
+            id="field-2-label"
+          >
+            refuge of departure
+            <span
+              aria-hidden="true"
+              class="chakra-form__required-indicator css-0"
+              role="presentation"
+            >
+              *
+            </span>
+          </label>
+          <div
+            class="chakra-select__wrapper css-42b2qy"
+          >
+            <select
+              aria-required="true"
+              class="chakra-select css-1ik61og"
+              id="refuge"
+              name="refuge"
+              required=""
+            >
+              <option
+                value=""
+              >
+                select one...
+              </option>
+              <option
+                value="Mallafré"
+              >
+                Refugi Ernest Mallafré
+              </option>
+              <option
+                value="Gerdar"
+              >
+                Refugi del Gerdar
+              </option>
+              <option
+                value="Amitges"
+              >
+                Refugi d'Amitges
+              </option>
+              <option
+                value="Josep Maria Blanc"
+              >
+                Refugi Josep Maria Blanc
+              </option>
+              <option
+                value="Colomèrs"
+              >
+                Refugi de Colomèrs
+              </option>
+              <option
+                value="Colomina"
+              >
+                Refugi Colomina
+              </option>
+              <option
+                value="Saboredo"
+              >
+                Refugi de Saboredo
+              </option>
+              <option
+                value="Restanca"
+              >
+                Refugi de Restanca
+              </option>
+              <option
+                value="Ventosa i Calvell"
+              >
+                Refugi de Ventosa i Calvell
+              </option>
+              <option
+                value="Pla de la Font"
+              >
+                Refugi del Pla de la Font
+              </option>
+            </select>
+            <div
+              class="chakra-select__icon-wrapper css-162mkon"
+            >
+              <svg
+                aria-hidden="true"
+                class="chakra-select__icon"
+                focusable="false"
+                role="presentation"
+                style="width: 1em; height: 1em; color: currentColor;"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div
+          class="chakra-form-control css-0"
+          name="difficulty"
+          role="group"
+        >
+          <label
+            class="chakra-form__label css-uvho5g"
+            for="difficulty"
+            id="field-7-label"
+          >
+            track difficulty
+            <span
+              aria-hidden="true"
+              class="chakra-form__required-indicator css-0"
+              role="presentation"
+            >
+              *
+            </span>
+          </label>
+          <div
+            class="chakra-radio-group css-0"
+            id="difficulty"
+            role="radiogroup"
+          >
+            <div
+              class="chakra-stack css-14rxle1"
+            >
+              <label
+                class="chakra-radio css-1pw4d56"
+              >
+                <input
+                  aria-required="true"
+                  class="chakra-radio__input"
+                  id="radio-3"
+                  name="difficulty"
+                  required=""
+                  style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; white-space: nowrap; position: absolute;"
+                  type="radio"
+                  value="low"
+                />
+                <span
+                  aria-hidden="true"
+                  class="chakra-radio__control css-ssalds"
+                />
+                <span
+                  class="chakra-radio__label css-1y8kf23"
+                >
+                  <div
+                    class="chakra-stack css-1m032t"
+                  >
+                    <div
+                      class="css-12lnuut"
+                    >
+                      <img
+                        alt="low difficulty track"
+                        class="chakra-image css-16kb41"
+                      />
+                    </div>
+                    <p
+                      class="chakra-text css-g5hezf"
+                    >
+                      low
+                    </p>
+                  </div>
+                </span>
+              </label>
+              <label
+                class="chakra-radio css-1pw4d56"
+              >
+                <input
+                  aria-required="true"
+                  class="chakra-radio__input"
+                  id="radio-4"
+                  name="difficulty"
+                  required=""
+                  style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; white-space: nowrap; position: absolute;"
+                  type="radio"
+                  value="normal"
+                />
+                <span
+                  aria-hidden="true"
+                  class="chakra-radio__control css-ssalds"
+                />
+                <span
+                  class="chakra-radio__label css-1y8kf23"
+                >
+                  <div
+                    class="chakra-stack css-1m032t"
+                  >
+                    <div
+                      class="css-12lnuut"
+                    >
+                      <img
+                        alt="normal difficulty track"
+                        class="chakra-image css-16kb41"
+                      />
+                    </div>
+                    <p
+                      class="chakra-text css-g5hezf"
+                    >
+                      normal
+                    </p>
+                  </div>
+                </span>
+              </label>
+              <label
+                class="chakra-radio css-1pw4d56"
+              >
+                <input
+                  aria-required="true"
+                  class="chakra-radio__input"
+                  id="radio-5"
+                  name="difficulty"
+                  required=""
+                  style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; white-space: nowrap; position: absolute;"
+                  type="radio"
+                  value="high"
+                />
+                <span
+                  aria-hidden="true"
+                  class="chakra-radio__control css-ssalds"
+                />
+                <span
+                  class="chakra-radio__label css-1y8kf23"
+                >
+                  <div
+                    class="chakra-stack css-1m032t"
+                  >
+                    <div
+                      class="css-12lnuut"
+                    >
+                      <img
+                        alt="high difficulty track"
+                        class="chakra-image css-16kb41"
+                      />
+                    </div>
+                    <p
+                      class="chakra-text css-g5hezf"
+                    >
+                      high
+                    </p>
+                  </div>
+                </span>
+              </label>
+            </div>
+          </div>
+          <div
+            class="chakra-form__helper-text css-0"
+            id="field-7-helptext"
+          >
+            Be honest, please! Show respect to the Mountains
+          </div>
+        </div>
+      </div>
+      <div
+        class="chakra-form-control css-hwbdeb"
+        role="group"
+      >
+        <img
+          alt="kids friendly track"
+          class="chakra-image css-1drmi6p"
+        />
+        <label
+          class="chakra-form__label css-1w9kk21"
+          for="kidsswitch"
+          id="field-8-label"
+        >
+          Kids friendly
+        </label>
+        <label
+          class="chakra-switch css-16pgy8f"
+        >
+          <input
+            aria-disabled="false"
+            aria-invalid="false"
+            class="chakra-switch__input"
+            id="kidsswitch"
+            name="kids"
+            style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; white-space: nowrap; position: absolute;"
+            type="checkbox"
+            value=""
+          />
+          <span
+            aria-hidden="true"
+            class="chakra-switch__track css-14qxnv8"
+          >
+            <span
+              class="chakra-switch__thumb css-0"
+            />
+          </span>
+        </label>
+      </div>
+      <fieldset
+        class="chakra-form-control css-1itv5e3"
+        name="seasons"
+        role="group"
+      >
+        <legend
+          class="chakra-form__label css-uvho5g"
+          for="field-9"
+          id="field-9-label"
+        >
+          recommended seasons
+          <span
+            aria-hidden="true"
+            class="chakra-form__required-indicator css-0"
+            role="presentation"
+          >
+            *
+          </span>
+        </legend>
+        <div
+          class="chakra-stack css-1qwdsol"
+        >
+          <label
+            class="chakra-checkbox css-1uiwwan"
+          >
+            <input
+              aria-disabled="false"
+              aria-invalid="false"
+              class="chakra-checkbox__input"
+              id="field-9"
+              name="seasons"
+              required=""
+              style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; white-space: nowrap; position: absolute;"
+              type="checkbox"
+              value="spring"
+            />
+            <span
+              aria-hidden="true"
+              class="chakra-checkbox__control css-dnty2r"
+            />
+            <span
+              class="chakra-checkbox__label css-1oeb2oe"
+            >
+              <svg
+                class="chakra-icon css-o7r4tf"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 576 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M546.2 9.7c-5.6-12.5-21.6-13-28.3-1.2C486.9 62.4 431.4 96 368 96h-80C182 96 96 182 96 288c0 7 .8 13.7 1.5 20.5C161.3 262.8 253.4 224 384 224c8.8 0 16 7.2 16 16s-7.2 16-16 16C132.6 256 26 410.1 2.4 468c-6.6 16.3 1.2 34.9 17.5 41.6 16.4 6.8 35-1.1 41.8-17.3 1.5-3.6 20.9-47.9 71.9-90.6 32.4 43.9 94 85.8 174.9 77.2C465.5 467.5 576 326.7 576 154.3c0-50.2-10.8-102.2-29.8-144.6z"
+                />
+              </svg>
+            </span>
+          </label>
+          <label
+            class="chakra-checkbox css-1uiwwan"
+          >
+            <input
+              aria-disabled="false"
+              aria-invalid="false"
+              class="chakra-checkbox__input"
+              id="field-9"
+              name="seasons"
+              required=""
+              style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; white-space: nowrap; position: absolute;"
+              type="checkbox"
+              value="summer"
+            />
+            <span
+              aria-hidden="true"
+              class="chakra-checkbox__control css-dnty2r"
+            />
+            <span
+              class="chakra-checkbox__label css-1oeb2oe"
+            >
+              <svg
+                class="chakra-icon css-8fzzdw"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 512 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"
+                />
+              </svg>
+            </span>
+          </label>
+          <label
+            class="chakra-checkbox css-1uiwwan"
+          >
+            <input
+              aria-disabled="false"
+              aria-invalid="false"
+              class="chakra-checkbox__input"
+              id="field-9"
+              name="seasons"
+              required=""
+              style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; white-space: nowrap; position: absolute;"
+              type="checkbox"
+              value="autumn"
+            />
+            <span
+              aria-hidden="true"
+              class="chakra-checkbox__control css-dnty2r"
+            />
+            <span
+              class="chakra-checkbox__label css-1oeb2oe"
+            >
+              <svg
+                class="chakra-icon css-6ezzjo"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 512 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M383.8 351.7c2.5-2.5 105.2-92.4 105.2-92.4l-17.5-7.5c-10-4.9-7.4-11.5-5-17.4 2.4-7.6 20.1-67.3 20.1-67.3s-47.7 10-57.7 12.5c-7.5 2.4-10-2.5-12.5-7.5s-15-32.4-15-32.4-52.6 59.9-55.1 62.3c-10 7.5-20.1 0-17.6-10 0-10 27.6-129.6 27.6-129.6s-30.1 17.4-40.1 22.4c-7.5 5-12.6 5-17.6-5C293.5 72.3 255.9 0 255.9 0s-37.5 72.3-42.5 79.8c-5 10-10 10-17.6 5-10-5-40.1-22.4-40.1-22.4S183.3 182 183.3 192c2.5 10-7.5 17.5-17.6 10-2.5-2.5-55.1-62.3-55.1-62.3S98.1 167 95.6 172s-5 9.9-12.5 7.5C73 177 25.4 167 25.4 167s17.6 59.7 20.1 67.3c2.4 6 5 12.5-5 17.4L23 259.3s102.6 89.9 105.2 92.4c5.1 5 10 7.5 5.1 22.5-5.1 15-10.1 35.1-10.1 35.1s95.2-20.1 105.3-22.6c8.7-.9 18.3 2.5 18.3 12.5S241 512 241 512h30s-5.8-102.7-5.8-112.8 9.5-13.4 18.4-12.5c10 2.5 105.2 22.6 105.2 22.6s-5-20.1-10-35.1 0-17.5 5-22.5z"
+                />
+              </svg>
+            </span>
+          </label>
+          <label
+            class="chakra-checkbox css-1uiwwan"
+          >
+            <input
+              aria-disabled="false"
+              aria-invalid="false"
+              class="chakra-checkbox__input"
+              id="field-9"
+              name="seasons"
+              required=""
+              style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; white-space: nowrap; position: absolute;"
+              type="checkbox"
+              value="winter"
+            />
+            <span
+              aria-hidden="true"
+              class="chakra-checkbox__control css-dnty2r"
+            />
+            <span
+              class="chakra-checkbox__label css-1oeb2oe"
+            >
+              <svg
+                class="chakra-icon css-foy372"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 448 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M440.3 345.2l-33.8-19.5 26-7c8.2-2.2 13.1-10.7 10.9-18.9l-4-14.9c-2.2-8.2-10.7-13.1-18.9-10.9l-70.8 19-63.9-37 63.8-36.9 70.8 19c8.2 2.2 16.7-2.7 18.9-10.9l4-14.9c2.2-8.2-2.7-16.7-10.9-18.9l-26-7 33.8-19.5c7.4-4.3 9.9-13.7 5.7-21.1L430.4 119c-4.3-7.4-13.7-9.9-21.1-5.7l-33.8 19.5 7-26c2.2-8.2-2.7-16.7-10.9-18.9l-14.9-4c-8.2-2.2-16.7 2.7-18.9 10.9l-19 70.8-62.8 36.2v-77.5l53.7-53.7c6.2-6.2 6.2-16.4 0-22.6l-11.3-11.3c-6.2-6.2-16.4-6.2-22.6 0L256 56.4V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v40.4l-19.7-19.7c-6.2-6.2-16.4-6.2-22.6 0L138.3 48c-6.3 6.2-6.3 16.4 0 22.6l53.7 53.7v77.5l-62.8-36.2-19-70.8c-2.2-8.2-10.7-13.1-18.9-10.9l-14.9 4c-8.2 2.2-13.1 10.7-10.9 18.9l7 26-33.8-19.5c-7.4-4.3-16.8-1.7-21.1 5.7L2.1 145.7c-4.3 7.4-1.7 16.8 5.7 21.1l33.8 19.5-26 7c-8.3 2.2-13.2 10.7-11 19l4 14.9c2.2 8.2 10.7 13.1 18.9 10.9l70.8-19 63.8 36.9-63.8 36.9-70.8-19c-8.2-2.2-16.7 2.7-18.9 10.9l-4 14.9c-2.2 8.2 2.7 16.7 10.9 18.9l26 7-33.8 19.6c-7.4 4.3-9.9 13.7-5.7 21.1l15.5 26.8c4.3 7.4 13.7 9.9 21.1 5.7l33.8-19.5-7 26c-2.2 8.2 2.7 16.7 10.9 18.9l14.9 4c8.2 2.2 16.7-2.7 18.9-10.9l19-70.8 62.8-36.2v77.5l-53.7 53.7c-6.3 6.2-6.3 16.4 0 22.6l11.3 11.3c6.2 6.2 16.4 6.2 22.6 0l19.7-19.7V496c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-40.4l19.7 19.7c6.2 6.2 16.4 6.2 22.6 0l11.3-11.3c6.2-6.2 6.2-16.4 0-22.6L256 387.7v-77.5l62.8 36.2 19 70.8c2.2 8.2 10.7 13.1 18.9 10.9l14.9-4c8.2-2.2 13.1-10.7 10.9-18.9l-7-26 33.8 19.5c7.4 4.3 16.8 1.7 21.1-5.7l15.5-26.8c4.3-7.3 1.8-16.8-5.6-21z"
+                />
+              </svg>
+            </span>
+          </label>
+        </div>
+      </fieldset>
+      <div
+        class="chakra-form-control css-1itv5e3"
+        role="group"
+      >
+        <label
+          class="chakra-form__label css-uvho5g"
+          for="description"
+          id="field-10-label"
+        >
+          description
+          <span
+            aria-hidden="true"
+            class="chakra-form__required-indicator css-0"
+            role="presentation"
+          >
+            *
+          </span>
+        </label>
+        <textarea
+          aria-required="true"
+          class="chakra-textarea css-1e429u6"
+          id="description"
+          name="description"
+          placeholder="decribe here your track (main waypoints, difficulties, must see spots...)"
+          required=""
+        />
+      </div>
+      <div
+        class="chakra-form-control css-1itv5e3"
+        role="group"
+      >
+        <label
+          class="chakra-form__label css-uvho5g"
+          for="image"
+          id="field-11-label"
+        >
+          cover image
+          <span
+            aria-hidden="true"
+            class="chakra-form__required-indicator css-0"
+            role="presentation"
+          >
+            *
+          </span>
+        </label>
+        <input
+          aria-required="true"
+          class="chakra-input css-1nvc77y"
+          id="image"
+          name="image"
+          placeholder="choose a nice picture..."
+          required=""
+          type="file"
+        />
+      </div>
+      <div
+        class="chakra-form-control css-1itv5e3"
+        role="group"
+      >
+        <label
+          class="chakra-form__label css-uvho5g"
+          for="image"
+          id="field-12-label"
+        >
+          GPX track file
+          <span
+            aria-hidden="true"
+            class="chakra-form__required-indicator css-0"
+            role="presentation"
+          >
+            *
+          </span>
+        </label>
+        <input
+          aria-required="true"
+          class="chakra-input css-1nvc77y"
+          id="gpx"
+          name="gpx"
+          required=""
+          type="file"
+        />
+      </div>
+      <div
+        class="css-gmuwbf"
+      >
+        <button
+          class="chakra-button css-ix34nz"
+          type="submit"
+        >
+          Add new track
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;

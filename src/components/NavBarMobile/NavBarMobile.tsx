@@ -39,11 +39,6 @@ const NavBarMobile = () => {
               <Icon as={FiHome} w={6} h={6} />
             </Link>
           </NextLink>
-          <NextLink href="/favourite-tracks" passHref>
-            <Link color={color}>
-              <Icon as={FiHeart} w={6} h={6} />
-            </Link>
-          </NextLink>
           <NextLink href="/new-track" passHref>
             <Link color={color}>
               <Icon as={FiPlusSquare} w={6} h={6} />
