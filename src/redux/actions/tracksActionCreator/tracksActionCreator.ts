@@ -15,3 +15,8 @@ export const createTrackAction = (track: Track) => ({
   type: actionTypes.createTrack,
   track,
 });
+
+export const loadTrackAction = (track: Track) => ({
+  type: actionTypes.loadTrack,
+  track,
+});
