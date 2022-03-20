@@ -3,6 +3,7 @@ import {
   createTrackThunk,
   deleteTrackThunk,
   loadAllTracksThunk,
+  loadTrackThunk,
 } from "./tracksThunks";
 
 describe("Given a loadAllTracksThunk function", () => {
@@ -45,6 +46,38 @@ describe("Given a loadAllTracksThunk function", () => {
       };
 
       await loadAllTracksThunk(dispatch);
+
+      expect(dispatch).toHaveBeenCalledWith(action);
+    });
+  });
+});
+
+describe("Given a loadTrackThunk function", () => {
+  describe("When it's called", () => {
+    test("then it should call a dispatch", async () => {
+      const dispatch = jest.fn();
+      const track = {
+        name: "Tuc de Sendrós per llac de Saboredo",
+        refuge: "Saboredo",
+        difficulty: "normal",
+        kids: true,
+        seasons: ["spring", "summer"],
+        description:
+          "Description of track, this route is very appealing because...",
+        image: "https://mapio.net/images-p/7224428.jpg",
+        gpx: "http://www.apatita.com/gps/aiguestortes_2_amitges_saboredo_colomers.zip",
+        user: "6228d9e2d3b484d4871608ee",
+        id: "6229bdbccf53a1fa6ac36821",
+        createdAt: "fake",
+        updatedAt: "fake",
+      };
+
+      const action = {
+        type: actionTypes.loadTrack,
+        track,
+      };
+
+      await loadTrackThunk(track.id)(dispatch);
 
       expect(dispatch).toHaveBeenCalledWith(action);
     });

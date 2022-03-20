@@ -11,7 +11,7 @@ import { FiEdit, FiEye, FiTrash2 } from "react-icons/fi";
 import styled from "@emotion/styled";
 import { useDispatch } from "react-redux";
 import { deleteTrackThunk } from "../../redux/thunks/tracksThunks";
-import React from "react";
+import { useRouter } from "next/router";
 
 const TrackItemContainer = styled(Flex)`
   justify-content: space-between;
@@ -29,10 +29,12 @@ interface MyTracksItemProps {
 const MyTracksItem = ({ name, id }: MyTracksItemProps): JSX.Element => {
   const dispatch = useDispatch();
   const toast = useToast();
+  const router = useRouter();
 
   const deleteTrack = (toast, id: string): void => {
     dispatch(deleteTrackThunk(toast, id));
   };
+
   return (
     <ListItem>
       <Box p={5} shadow="md" borderWidth="1px" borderRadius="lg">
@@ -44,6 +46,9 @@ const MyTracksItem = ({ name, id }: MyTracksItemProps): JSX.Element => {
               aria-label="View Track"
               icon={<FiEye />}
               isRound
+              onClick={(event: React.MouseEvent) => {
+                router.push(`/track/${id}`);
+              }}
             />
             <IconButton
               colorScheme="yellow"

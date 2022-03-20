@@ -8,12 +8,8 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { loadTrackThunk } from "../../redux/thunks/tracksThunks";
 
 const TrackItemPage = (): JSX.Element => {
-  const router = useRouter();
   const track: Track = useSelector((state: RootState) => state.track);
 
-  if (router.isFallback) {
-    return <Text>Loading....</Text>;
-  }
   return <TrackCard track={track} />;
 };
 
