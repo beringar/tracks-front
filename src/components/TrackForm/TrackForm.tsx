@@ -149,7 +149,7 @@ const TrackForm = (): JSX.Element => {
           })}
         >
           <FormLabel htmlFor="difficulty">track difficulty</FormLabel>
-          <RadioGroup id="difficulty">
+          <RadioGroup id="difficulty" name="difficulty">
             <HStack spacing="18px">
               <Radio
                 value="low"
