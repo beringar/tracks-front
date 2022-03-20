@@ -4,6 +4,7 @@ const actionTypes = {
   createTrack: "create-track",
   setSubmitting: "set-submit",
   unsetSubmitting: "unset-submitting",
+  loadTrack: "load-track",
 };
 
 export default actionTypes;
