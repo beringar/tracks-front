@@ -44,4 +44,24 @@ export const handlers = [
     `${process.env.NEXT_PUBLIC_TRACKS_API_URL}tracks/6229bdbccf53a1fa6ac36821`,
     (req, res, ctx) => res(ctx.status(200), ctx.json({}))
   ),
+  rest.post(
+    `${process.env.NEXT_PUBLIC_TRACKS_API_URL}tracks/new`,
+    (req, res, ctx) =>
+      res(
+        ctx.status(201),
+        ctx.json({
+          name: "Tuc de Sendrós per llac de Saboredo",
+          refuge: "Saboredo",
+          difficulty: "normal",
+          kids: true,
+          seasons: ["spring", "summer"],
+          description:
+            "Description of track, this route is very appealing because...",
+          image: "https://mapio.net/images-p/7224428.jpg",
+          gpx: "http://www.apatita.com/gps/aiguestortes_2_amitges_saboredo_colomers.zip",
+          user: "6228d9e2d3b484d4871608ee",
+          id: "6229bdbccf53a1fa6ac36821",
+        })
+      )
+  ),
 ];
