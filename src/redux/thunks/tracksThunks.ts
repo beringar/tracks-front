@@ -2,11 +2,13 @@ import { AppDispatch } from "../store";
 import {
   deleteTrackAction,
   loadAllTracksAction,
+  loadTrackAction,
 } from "../actions/tracksActionCreator/tracksActionCreator";
 import {
   setSubmittingAction,
   unsetSubmittingAction,
 } from "../actions/ApiActionCreator/ApiActionCreator";
+import { Track } from "../../types/Track";
 
 const APIUrl: string = process.env.NEXT_PUBLIC_TRACKS_API_URL;
 
@@ -74,3 +76,15 @@ export const createTrackThunk =
     }
     dispatch(unsetSubmittingAction());
   };
+
+export const loadTrackThunk = (id: string) => async (dispatch: AppDispatch) => {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_TRACKS_API_URL}tracks/${id}`
+  );
+
+  const track: Track = await response.json();
+
+  if (response.ok) {
+    dispatch(loadTrackAction(track));
+  }
+};
