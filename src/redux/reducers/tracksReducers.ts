@@ -25,6 +25,10 @@ const tracksReducers = (
       newTracks = currentTracks.filter((track) => track.id !== action.id);
       break;
 
+    case actionTypes.createTrack:
+      newTracks = [...currentTracks, action.track];
+      break;
+
     default:
       newTracks = [...currentTracks];
       break;

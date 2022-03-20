@@ -3,6 +3,10 @@ import {
   deleteTrackAction,
   loadAllTracksAction,
 } from "../actions/tracksActionCreator/tracksActionCreator";
+import {
+  setSubmittingAction,
+  unsetSubmittingAction,
+} from "../actions/ApiActionCreator/ApiActionCreator";
 
 const APIUrl: string = process.env.NEXT_PUBLIC_TRACKS_API_URL;
 
@@ -26,4 +30,47 @@ export const deleteTrackThunk =
         isClosable: true,
       });
     }
+  };
+
+export const createTrackThunk =
+  (track, toast, reset) => async (dispatch: AppDispatch) => {
+    dispatch(setSubmittingAction());
+    const formData = new FormData();
+    formData.append("name", track.name);
+    formData.append("refuge", track.refuge);
+    formData.append("difficulty", track.difficulty);
+    formData.append("kids", track.kids);
+    formData.append("seasons", track.seasons);
+    formData.append("description", track.description);
+    formData.append("user", "6228d9e2d3b484d4871608ee");
+    formData.append("image", track.image[0]);
+    formData.append("gpx", track.gpx[0]);
+
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_TRACKS_API_URL}tracks/new`,
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
+    const responseServer = await response.json();
+    if (response.ok) {
+      toast({
+        title: "Track CREATED!",
+        description: responseServer.message,
+        status: "success",
+        duration: 9000,
+        isClosable: true,
+      });
+      reset();
+    } else {
+      toast({
+        title: "ERROR creating track!",
+        description: responseServer.message,
+        status: "error",
+        duration: 9000,
+        isClosable: true,
+      });
+    }
+    dispatch(unsetSubmittingAction());
   };

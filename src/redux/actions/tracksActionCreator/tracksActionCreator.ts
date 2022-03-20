@@ -10,3 +10,8 @@ export const deleteTrackAction = (id: string) => ({
   type: actionTypes.deleteTrack,
   id,
 });
+
+export const createTrackAction = (track: Track) => ({
+  type: actionTypes.createTrack,
+  track,
+});

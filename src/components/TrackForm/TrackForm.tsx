@@ -31,13 +31,18 @@ import {
   FaCanadianMapleLeaf,
   FaSnowflake,
 } from "react-icons/fa";
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import AlertInfo from "../AlertInfo/AltertInfo";
+import { useDispatch, useSelector } from "react-redux";
+import { createTrackThunk } from "../../redux/thunks/tracksThunks";
+import { RootState } from "../../redux/store";
 
 const TrackForm = (): JSX.Element => {
   const toast = useToast();
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const dispatch = useDispatch();
+  const isSubmitting: boolean = useSelector(
+    (state: RootState) => state.isSubmitting
+  );
 
   const {
     register,
@@ -47,45 +52,7 @@ const TrackForm = (): JSX.Element => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    setIsSubmitting(true);
-    const formData = new FormData();
-    formData.append("name", data.name);
-    formData.append("refuge", data.refuge);
-    formData.append("difficulty", data.difficulty);
-    formData.append("kids", data.kids);
-    formData.append("seasons", data.seasons);
-    formData.append("description", data.description);
-    formData.append("user", "6228d9e2d3b484d4871608ee");
-    formData.append("image", data.image[0]);
-    formData.append("gpx", data.gpx[0]);
-
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_TRACKS_API_URL}tracks/new`,
-      {
-        method: "POST",
-        body: formData,
-      }
-    );
-    const responseServer = await response.json();
-    if (response.ok) {
-      toast({
-        title: "Track CREATED!",
-        description: responseServer.message,
-        status: "success",
-        duration: 9000,
-        isClosable: true,
-      });
-      reset();
-    } else {
-      toast({
-        title: "ERROR creating track!",
-        description: responseServer.message,
-        status: "error",
-        duration: 9000,
-        isClosable: true,
-      });
-    }
-    setIsSubmitting(false);
+    dispatch(createTrackThunk(data, toast, reset));
   };
 
   return (

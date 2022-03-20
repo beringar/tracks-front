@@ -7,7 +7,7 @@ describe("Given a tracksReducers function", () => {
   describe("When it is called with an empty state and the loadAllTracks action with an array of tracks", () => {
     test("Then it should return a new state containing the passed array of tracks", () => {
       const currentState: Track[] = [];
-      const tracksTest = [
+      const tracksTest: Track[] = [
         {
           name: "Tuc de Sendrós per llac de Saboredo",
           refuge: "Saboredo",
@@ -20,6 +20,8 @@ describe("Given a tracksReducers function", () => {
           gpx: "http://www.apatita.com/gps/aiguestortes_2_amitges_saboredo_colomers.zip",
           user: "6228d9e2d3b484d4871608ee",
           id: "6229bdbccf53a1fa6ac36821",
+          createdAt: "fake",
+          updatedAt: "fake",
         },
         {
           name: "Tuc de Sendrós per llac de Saboredo",
@@ -33,6 +35,8 @@ describe("Given a tracksReducers function", () => {
           gpx: "http://www.apatita.com/gps/aiguestortes_2_amitges_saboredo_colomers.zip",
           user: "6228d9e2d3b484d4871608ee",
           id: "6229bdbccf53a1fa6ac36821",
+          createdAt: "fake",
+          updatedAt: "fake",
         },
       ];
       const action = {
@@ -180,6 +184,67 @@ describe("Given a tracksReducers function", () => {
       const newTracks = tracksReducers([], action);
 
       expect(newTracks).toEqual(tracks);
+    });
+  });
+
+  describe("When called a createTrack action passing a track", () => {
+    test("Then should return array of tracks with the new track in", () => {
+      const currentTracks: Track[] = [
+        {
+          name: "Tuc de Sendrós per llac de Saboredo",
+          refuge: "Saboredo",
+          difficulty: "normal",
+          kids: true,
+          seasons: ["spring", "summer"],
+          description:
+            "Description of track, this route is very appealing because...",
+          image: "https://mapio.net/images-p/7224428.jpg",
+          gpx: "http://www.apatita.com/gps/aiguestortes_2_amitges_saboredo_colomers.zip",
+          user: "6228d9e2d3b484d4871608ee",
+          id: "6229bdbccf53a1fa6ac36821",
+          createdAt: "fake",
+          updatedAt: "fake",
+        },
+        {
+          name: "Tuc de Sendrós per llac de Saboredo",
+          refuge: "Saboredo",
+          difficulty: "normal",
+          kids: true,
+          seasons: ["spring", "summer"],
+          description:
+            "Description of track, this route is very appealing because...",
+          image: "https://mapio.net/images-p/7224428.jpg",
+          gpx: "http://www.apatita.com/gps/aiguestortes_2_amitges_saboredo_colomers.zip",
+          user: "6228d9e2d3b484d4871608ee",
+          id: "6229bdbccf53a1fa6ac36821",
+          createdAt: "fake",
+          updatedAt: "fake",
+        },
+      ];
+      const trackToAdd: Track = {
+        name: "Tuc de Sendrós per llac de Saboredo",
+        refuge: "Saboredo",
+        difficulty: "normal",
+        kids: true,
+        seasons: ["spring", "summer"],
+        description:
+          "Description of track, this route is very appealing because...",
+        image: "https://mapio.net/images-p/7224428.jpg",
+        gpx: "http://www.apatita.com/gps/aiguestortes_2_amitges_saboredo_colomers.zip",
+        user: "6228d9e2d3b484d4871608ee",
+        id: "6229bdbccf53a1fa6ac36821",
+        createdAt: "fake",
+        updatedAt: "fake",
+      };
+
+      const action = {
+        type: actionTypes.createTrack,
+        trackToAdd,
+      };
+
+      const newTracks = tracksReducers(currentTracks, action);
+
+      expect(newTracks.length).toEqual(3);
     });
   });
 });
