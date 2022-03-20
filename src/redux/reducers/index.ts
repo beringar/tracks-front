@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import apiReducers from "./ApiReducers";
+import apiReducers from "./apiReducers";
 import tracksReducers from "./tracksReducers";
 
 const rootReducer = combineReducers({
