@@ -137,8 +137,8 @@ describe("Given a tracksReducers function", () => {
     });
   });
 
-  describe("When called a HYDRATE case", () => {
-    test("Then should return and array of tracks without the deleted one", () => {
+  describe("When called HYDRATE case", () => {
+    test("Then should return the elements passed by HYDRATE payload", () => {
       const tracks: Track[] = [
         {
           name: "Tuc de Sendrós per llac de Saboredo",
@@ -177,9 +177,9 @@ describe("Given a tracksReducers function", () => {
         payload: { tracks: tracks },
       };
 
-      const newProducts = tracksReducers([], action);
+      const newTracks = tracksReducers([], action);
 
-      expect(newProducts).toEqual(tracks);
+      expect(newTracks).toEqual(tracks);
     });
   });
 });
