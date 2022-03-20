@@ -8,14 +8,21 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { loadTrackThunk } from "../../redux/thunks/tracksThunks";
 
 const TrackItemPage = (): JSX.Element => {
-  const router = useRouter();
   const track: Track = useSelector((state: RootState) => state.track);
 
-  if (router.isFallback) {
-    return <Text>Loading....</Text>;
-  }
   return <TrackCard track={track} />;
 };
+
+export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
+  (store) => async (context) => {
+    const id = context.params?.id;
+    await store.dispatch<any>(loadTrackThunk(id as string));
+    return {
+      props: {},
+      revalidate: 20,
+    };
+  }
+);
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const response = await fetch(
@@ -25,19 +32,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths: tracks.map((track) => ({ params: { id: `${track.id}` } })),
-    fallback: true,
+    fallback: "blocking",
   };
 };
-
-export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
-  (store) => async (context) => {
-    const id = context.params?.id;
-    await store.dispatch<any>(loadTrackThunk(id as string));
-    return {
-      props: { id },
-      revalidate: 20,
-    };
-  }
-);
 
 export default TrackItemPage;
