@@ -20,6 +20,7 @@
     "@fontsource/inter": "^4.5.4",
     "@fontsource/montserrat-alternates": "^4.5.2",
     "@redux-devtools/extension": "^3.2.2",
+    "@testing-library/user-event": "^13.5.0",
     "framer-motion": "^4.1.17",
     "msw": "^0.38.2",
     "next": "12.1.0",
