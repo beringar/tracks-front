@@ -13,6 +13,17 @@ const TrackItemPage = (): JSX.Element => {
   return <TrackCard track={track} />;
 };
 
+export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
+  (store) => async (context) => {
+    const id = context.params?.id;
+    await store.dispatch<any>(loadTrackThunk(id as string));
+    return {
+      props: {},
+      revalidate: 20,
+    };
+  }
+);
+
 export const getStaticPaths: GetStaticPaths = async () => {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_TRACKS_API_URL}tracks`
@@ -21,19 +32,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths: tracks.map((track) => ({ params: { id: `${track.id}` } })),
-    fallback: true,
+    fallback: "blocking",
   };
 };
-
-export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
-  (store) => async (context) => {
-    const id = context.params?.id;
-    await store.dispatch<any>(loadTrackThunk(id as string));
-    return {
-      props: { id },
-      revalidate: 20,
-    };
-  }
-);
 
 export default TrackItemPage;
