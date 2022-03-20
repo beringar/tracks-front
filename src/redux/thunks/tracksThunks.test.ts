@@ -1,5 +1,9 @@
 import actionTypes from "../actions/actionTypes";
-import { deleteTrackThunk, loadAllTracksThunk } from "./tracksThunks";
+import {
+  createTrackThunk,
+  deleteTrackThunk,
+  loadAllTracksThunk,
+} from "./tracksThunks";
 
 describe("Given a loadAllTracksThunk function", () => {
   describe("When it's invoked", () => {
@@ -57,6 +61,36 @@ describe("Given a deleteTrackThunk function", () => {
       const deleteThunk = deleteTrackThunk(toastInstance, id);
 
       await deleteThunk(dispatch);
+
+      expect(dispatch).toHaveBeenCalled();
+    });
+  });
+});
+
+describe("Given a createTrackThunk function", () => {
+  describe("When it's called with a valid track", () => {
+    test("Then it should call a dispatch", async () => {
+      const dispatch = jest.fn();
+
+      const trackToAdd = {
+        name: "Tuc de Sendrós per llac de Saboredo",
+        refuge: "Saboredo",
+        difficulty: "normal",
+        kids: true,
+        seasons: ["spring", "summer"],
+        description:
+          "Description of track, this route is very appealing because...",
+        image: "https://mapio.net/images-p/7224428.jpg",
+        gpx: "http://www.apatita.com/gps/aiguestortes_2_amitges_saboredo_colomers.zip",
+        user: "6228d9e2d3b484d4871608ee",
+      };
+
+      const toast = jest.fn();
+      const reset = jest.fn();
+
+      const createThunk = createTrackThunk(trackToAdd, toast, reset);
+
+      await createThunk(dispatch);
 
       expect(dispatch).toHaveBeenCalled();
     });
