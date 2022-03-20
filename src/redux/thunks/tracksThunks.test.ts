@@ -1,5 +1,5 @@
 import actionTypes from "../actions/actionTypes";
-import { loadAllTracksThunk } from "./tracksThunks";
+import { deleteTrackThunk, loadAllTracksThunk } from "./tracksThunks";
 
 describe("Given a loadAllTracksThunk function", () => {
   describe("When it's invoked", () => {
@@ -43,6 +43,22 @@ describe("Given a loadAllTracksThunk function", () => {
       await loadAllTracksThunk(dispatch);
 
       expect(dispatch).toHaveBeenCalledWith(action);
+    });
+  });
+});
+
+describe("Given a deleteTrackThunk function", () => {
+  describe("When it's invoked with a valid id ansd a toast instance", () => {
+    test("Then it should call a dispatch", async () => {
+      const dispatch = jest.fn();
+      const id = "6229bdbccf53a1fa6ac36821";
+      const toastInstance = () => {};
+
+      const deleteThunk = deleteTrackThunk(toastInstance, id);
+
+      await deleteThunk(dispatch);
+
+      expect(dispatch).toHaveBeenCalled();
     });
   });
 });

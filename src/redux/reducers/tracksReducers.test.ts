@@ -71,4 +71,68 @@ describe("Given a tracksReducers function", () => {
       expect(newState).toEqual(currentState);
     });
   });
+
+  describe("When called a deleteTrack action an an existing id", () => {
+    test("Then should return and array of tracks without the deleted one", () => {
+      const currentTracks: Track[] = [
+        {
+          name: "Tuc de Sendrós per llac de Saboredo",
+          refuge: "Saboredo",
+          difficulty: "normal",
+          kids: true,
+          seasons: ["spring", "summer"],
+          description:
+            "Description of track, this route is very appealing because...",
+          image: "https://mapio.net/images-p/7224428.jpg",
+          gpx: "http://www.apatita.com/gps/aiguestortes_2_amitges_saboredo_colomers.zip",
+          user: "6228d9e2d3b484d4871608ee",
+          id: "6229bdbccf53a1fa6ac36823",
+          createdAt: "fakedate",
+          updatedAt: "faekedate",
+        },
+        {
+          name: "Tuc de Sendrós per llac de Saboredo",
+          refuge: "Saboredo",
+          difficulty: "normal",
+          kids: true,
+          seasons: ["spring", "summer"],
+          description:
+            "Description of track, this route is very appealing because...",
+          image: "https://mapio.net/images-p/7224428.jpg",
+          gpx: "http://www.apatita.com/gps/aiguestortes_2_amitges_saboredo_colomers.zip",
+          user: "6228d9e2d3b484d4871608ee",
+          id: "6229bdbccf53a1fa6ac36821",
+          createdAt: "fakedate",
+          updatedAt: "faekedate",
+        },
+      ];
+
+      const expectedAfterDelete: Track[] = [
+        {
+          name: "Tuc de Sendrós per llac de Saboredo",
+          refuge: "Saboredo",
+          difficulty: "normal",
+          kids: true,
+          seasons: ["spring", "summer"],
+          description:
+            "Description of track, this route is very appealing because...",
+          image: "https://mapio.net/images-p/7224428.jpg",
+          gpx: "http://www.apatita.com/gps/aiguestortes_2_amitges_saboredo_colomers.zip",
+          user: "6228d9e2d3b484d4871608ee",
+          id: "6229bdbccf53a1fa6ac36823",
+          createdAt: "fakedate",
+          updatedAt: "faekedate",
+        },
+      ];
+
+      const action = {
+        type: actionTypes.deleteTrack,
+        id: "6229bdbccf53a1fa6ac36821",
+      };
+
+      const newProducts = tracksReducers(currentTracks, action);
+
+      expect(newProducts).toEqual(expectedAfterDelete);
+    });
+  });
 });

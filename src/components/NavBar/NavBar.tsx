@@ -45,9 +45,6 @@ const NavBar = () => {
             <NextLink href="/home" passHref>
               <Link color={color}>Home</Link>
             </NextLink>
-            <NextLink href="/favourite-tracks" passHref>
-              <Link color={color}>My favourite tracks</Link>
-            </NextLink>
             <NextLink href="/new-track" passHref>
               <Link color={color}>Add new track</Link>
             </NextLink>
