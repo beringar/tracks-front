@@ -1,24 +1,13 @@
 import { render, screen } from "@testing-library/react";
-import renderWithProviders from "../jest.setup";
-import MyProfilePage, { getServerSideProps } from "../src/pages/my-profile";
+import HomePage, { getServerSideProps } from "../src/pages/home";
 import "whatwg-fetch";
 import { wrapper } from "../src/redux/store";
 import { GetServerSidePropsContext } from "next";
 
-describe("Given a MyProfilePage component", () => {
+describe("Given a HomePage component", () => {
   describe("When it's rendered", () => {
-    test("It should render a heading", async () => {
-      renderWithProviders(<MyProfilePage />);
-
-      const myTracksHeading = screen.getByRole("heading", {
-        name: /My tracks/i,
-      });
-
-      expect(myTracksHeading).toBeInTheDocument();
-    });
-
     test("It should find 'Tuc de Sendrós' in the document", async () => {
-      const WrappedComponent = await wrapper.withRedux(MyProfilePage);
+      const WrappedComponent = await wrapper.withRedux(HomePage);
 
       render(<WrappedComponent />);
       const context = {
