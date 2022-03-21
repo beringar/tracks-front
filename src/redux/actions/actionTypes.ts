@@ -5,6 +5,7 @@ const actionTypes = {
   setSubmitting: "set-submit",
   unsetSubmitting: "unset-submitting",
   loadTrack: "load-track",
+  setUser: "set-user",
 };
 
 export default actionTypes;
