@@ -245,7 +245,7 @@ const TrackForm = (): JSX.Element => {
           {...register("image", {
             required: "Please upload image file",
             validate: {
-              lessThan10MB: (files) =>
+              lessThan1MB: (files) =>
                 files[0]?.size < 1000000 ||
                 "Too big! Maximum size allowed is 1 MB",
               acceptedFormats: (files) =>
@@ -271,7 +271,7 @@ const TrackForm = (): JSX.Element => {
           {...register("gpx", {
             required: "Please upload GPX file",
             validate: {
-              lessThan10MB: (files) =>
+              lessThan500KB: (files) =>
                 files[0]?.size < 500000 ||
                 "Too big! Maximum size allowed is 500 KB",
               acceptedFormats: (files) =>

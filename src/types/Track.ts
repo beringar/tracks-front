@@ -8,7 +8,12 @@ export interface Track {
   image: string;
   gpx: string;
   id: string;
-  user: string;
+  user: TrackUser;
   createdAt: string;
   updatedAt: string;
+}
+
+export interface TrackUser {
+  username: string;
+  id: string;
 }

@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import "whatwg-fetch";
 import { wrapper } from "../src/redux/store";
-import { GetServerSidePropsContext, GetStaticPropsContext } from "next";
+import { GetStaticPropsContext } from "next";
 import TrackItemPage, { getStaticProps } from "../src/pages/track/[id]";
 
 describe("Given a TrackItemPage component", () => {
@@ -11,7 +11,7 @@ describe("Given a TrackItemPage component", () => {
 
       render(<WrappedComponent />);
       const context = {
-        params: { id: "6229bdbccf53a1fa6ac36821" },
+        params: { id: "6235b6b63adf2764185de853" },
       };
 
       await getStaticProps(context as GetStaticPropsContext);

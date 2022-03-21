@@ -7,19 +7,26 @@ import {
   Heading,
   Avatar,
   Image,
+  IconButton,
+  Flex,
 } from "@chakra-ui/react";
 import TimeAgo from "timeago-react";
 import { Track } from "../../types/Track";
+import { FiEye } from "react-icons/fi";
+import { useRouter } from "next/router";
+import TrackBadges from "../TrackBadges/TrackBadges";
 
 interface TrackCardProps {
   track: Track;
 }
 
 const TrackCard = ({
-  track: { id, image, name, description, createdAt },
+  track: { id, image, name, difficulty, kids, refuge, updatedAt, user },
 }: TrackCardProps): JSX.Element => {
+  const router = useRouter();
   const bgCard = useColorModeValue("white", "gray.900");
   const headingColor = useColorModeValue("gray.700", "white");
+  const viewIconColor = useColorModeValue("green", "lightgreen");
 
   return (
     <Center as="li" key={id}>
@@ -56,20 +63,36 @@ const TrackCard = ({
             fontSize={"sm"}
             letterSpacing={1.1}
           >
-            <TimeAgo datetime={createdAt} />
+            {refuge}
           </Text>
-          <Heading color={headingColor} fontSize={"2xl"} fontFamily={"body"}>
+          <Heading
+            color={headingColor}
+            fontSize={"2xl"}
+            fontFamily={"body"}
+            fontWeight={"normal"}
+          >
             {name}
           </Heading>
-          <Text color={"gray.500"}>{description}</Text>
+          <TrackBadges difficulty={difficulty} kids={kids} />
         </Stack>
-        <Stack mt={6} direction={"row"} spacing={4} align={"center"}>
-          <Avatar bg="green.500" name={"Beren"} />
+        <Flex mt={6} justify="space-between" align="center">
           <Stack direction={"column"} spacing={0} fontSize={"sm"}>
-            <Text fontWeight={600}>Beren</Text>
-            <Text color={"gray.500"}>March 2022</Text>
+            <Text fontWeight={600}>{user.username}</Text>
+            <Text color={"gray.500"}>
+              <TimeAgo datetime={updatedAt} />
+            </Text>
           </Stack>
-        </Stack>
+          <IconButton
+            color={viewIconColor}
+            variant="ghost"
+            size="lg"
+            aria-label="View Track"
+            icon={<FiEye />}
+            onClick={(event: React.MouseEvent) => {
+              router.push(`/track/${id}`);
+            }}
+          />
+        </Flex>
       </Box>
     </Center>
   );
