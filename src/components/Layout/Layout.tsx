@@ -27,7 +27,7 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
       <Container maxW="container.lg" pt={4} mb="100px">
         {children}
       </Container>
-      <NavBarMobile />
+      <NavBarMobile user={user} />
     </>
   );
 };
