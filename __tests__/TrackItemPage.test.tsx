@@ -9,13 +9,15 @@ describe("Given a TrackItemPage component", () => {
     test("It should render a track", async () => {
       const WrappedComponent = await wrapper.withRedux(TrackItemPage);
 
-      render(<WrappedComponent />);
       const context = {
-        params: { id: "6235b6b63adf2764185de853" },
+        params: { id: "623752aca6bbb8435d634b9c" },
       };
 
       await getStaticProps(context as GetStaticPropsContext);
-      const expectedText = await screen.findByText(/Tuc de Sendrós/i);
+
+      render(<WrappedComponent />);
+
+      const expectedText = await screen.findByText(/new test/i);
 
       expect(expectedText).toBeInTheDocument();
     });

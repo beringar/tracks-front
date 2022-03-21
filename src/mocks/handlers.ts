@@ -74,28 +74,28 @@ export const handlers = [
       )
   ),
   rest.get(
-    `${process.env.NEXT_PUBLIC_TRACKS_API_URL}tracks/6235b6b63adf2764185de853`,
+    `${process.env.NEXT_PUBLIC_TRACKS_API_URL}tracks/623752aca6bbb8435d634b9c`,
     (req, res, ctx) => {
       return res(
         ctx.status(200),
         ctx.json({
-          name: "testing timeago functionality right now",
-          refuge: "Colomina",
+          name: "new test with isSubmitting state added to redux store with apiReducer",
+          refuge: "Saboredo",
           difficulty: "low",
           kids: true,
           seasons: ["autumn"],
           description:
-            "Roads have long been built through passes, as well as railways more recently. Some high and rugged passes may have tunnels bored underneath a nearby mountainside (like the Eisenhower Tunnel bypassing Loveland Pass in the Rockies) to allow faster traffic flow throughout the year.",
+            "We test all the fields at once by providing invalid data - no name, too long description and the number of serving that is above 10. Then we submit the form and check that the number of error messages (rendered as span with alert role) is the same as the number of fields with errors. ",
           image:
-            "https://firebasestorage.googleapis.com/v0/b/tracks-beringar.appspot.com/o/1647687349187_myweeklymenu.png?alt=media&token=635fdd00-7e29-49ee-afce-591624148607",
-          gpx: "https://firebasestorage.googleapis.com/v0/b/tracks-beringar.appspot.com/o/1647687349250_RUTA%20B%20%20Entorno%20Estany%20de%20Sant%20Maurici%20-%20Espot.gpx?alt=media&token=8ac07945-5642-4304-8f8a-9f0b0b033bcd",
+            "https://firebasestorage.googleapis.com/v0/b/tracks-beringar.appspot.com/o/1647792812850_beringar_network99.jpg?alt=media&token=09763b62-35d3-408c-a0f2-7c2cc0606f3e",
+          gpx: "https://firebasestorage.googleapis.com/v0/b/tracks-beringar.appspot.com/o/1647792812858_RUTA%20B%20%20Entorno%20Estany%20de%20Sant%20Maurici%20-%20Espot.gpx?alt=media&token=a5f53300-7c73-43bf-a915-88b61e54f1a8",
           user: {
             username: "Beren",
             id: "6228d9e2d3b484d4871608ee",
           },
-          createdAt: "2022-03-19T10:55:50.210Z",
-          updatedAt: "2022-03-19T10:55:50.210Z",
-          id: "6235b6b63adf2764185de853",
+          createdAt: "2022-03-20T16:13:32.660Z",
+          updatedAt: "2022-03-20T16:13:33.667Z",
+          id: "623752aca6bbb8435d634b9c",
         })
       );
     }
