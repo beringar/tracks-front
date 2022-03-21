@@ -69,7 +69,7 @@ const TrackCard = ({
             color={headingColor}
             fontSize={"2xl"}
             fontFamily={"body"}
-            fontWeight={"normal"}
+            fontWeight={500}
           >
             {name}
           </Heading>

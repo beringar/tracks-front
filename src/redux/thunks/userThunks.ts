@@ -25,8 +25,8 @@ export const loginUserThunk =
       localStorage.setItem("userToken", responseData.token);
       dispatch(setUserAction(userData));
       toast({
-        title: "Login Successful!",
-        description: `You are looged as ${user.username}`,
+        title: "Login successful!",
+        description: `You are looged in as ${user.username}`,
         status: "success",
         duration: 9000,
         isClosable: true,
