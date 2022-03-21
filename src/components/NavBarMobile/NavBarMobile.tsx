@@ -58,7 +58,9 @@ const NavBarMobile = ({ user }) => {
             </NextLink>
           ) : (
             <NextLink href="/login" passHref>
-              <IconButton aria-label="Login" icon={<FiLogIn />} isRound />
+              <Link color={color}>
+                <Icon as={FiLogIn} w={6} h={6} />
+              </Link>
             </NextLink>
           )}
           <DarkModeSwitch />
