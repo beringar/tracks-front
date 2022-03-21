@@ -7,14 +7,13 @@ export const DarkModeSwitch = () => {
   const isDark = colorMode === "dark";
   return (
     <IconButton
-      fontWeight={["normal", "medium", "bold"]}
-      fontSize={["xs", "sm", "lg", "xl"]}
+      fontWeight={"medium"}
+      fontSize={"lg"}
       variant="ghost"
       _hover={{ bg: "rgba(0,0,0,.2)" }}
       aria-label="Toggle dark mode"
       icon={colorMode === "dark" ? <BiSun /> : <BsMoon />}
       onClick={toggleColorMode}
-      color="white"
       _focus={{ boxShadow: "none" }}
     />
   );
