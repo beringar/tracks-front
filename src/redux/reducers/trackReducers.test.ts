@@ -17,7 +17,10 @@ describe("Given a trackReducers function", () => {
           "Description of track, this route is very appealing because...",
         image: "https://mapio.net/images-p/7224428.jpg",
         gpx: "http://www.apatita.com/gps/aiguestortes_2_amitges_saboredo_colomers.zip",
-        user: "6228d9e2d3b484d4871608ee",
+        user: {
+          username: "string",
+          id: "string",
+        },
         id: "6229bdbccf53a1fa6ac36821",
         createdAt: "fake",
         updatedAt: "fake",
@@ -60,7 +63,10 @@ describe("Given a trackReducers function", () => {
           "Description of track, this route is very appealing because...",
         image: "https://mapio.net/images-p/7224428.jpg",
         gpx: "http://www.apatita.com/gps/aiguestortes_2_amitges_saboredo_colomers.zip",
-        user: "6228d9e2d3b484d4871608ee",
+        user: {
+          username: "string",
+          id: "string",
+        },
         id: "6229bdbccf53a1fa6ac36821",
         createdAt: "fake",
         updatedAt: "fake",
