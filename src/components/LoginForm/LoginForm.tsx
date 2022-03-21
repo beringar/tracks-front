@@ -1,5 +1,4 @@
 import {
-  VStack,
   Input,
   useToast,
   Box,
@@ -24,7 +23,7 @@ const LoginForm = (): JSX.Element => {
 
   useEffect(() => {
     if (user.username) {
-      router.push(`/home`);
+      router.push("/home");
     }
   }, [user, router]);
 

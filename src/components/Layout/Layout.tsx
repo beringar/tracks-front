@@ -2,12 +2,15 @@ import NavBar from "../NavBar/NavBar";
 import Head from "next/head";
 import { Container } from "@chakra-ui/react";
 import NavBarMobile from "../NavBarMobile/NavBarMobile";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
 
 interface LayoutProps {
   children: JSX.Element | JSX.Element[];
 }
 
 const Layout = ({ children }: LayoutProps): JSX.Element => {
+  const user = useSelector((state: RootState) => state.user);
   return (
     <>
       <Head>
@@ -20,7 +23,7 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <NavBar />
+      <NavBar user={user} />
       <Container maxW="container.lg" pt={4} mb="100px">
         {children}
       </Container>

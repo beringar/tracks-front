@@ -40,9 +40,7 @@ import { RootState } from "../../redux/store";
 const TrackForm = (): JSX.Element => {
   const toast = useToast();
   const dispatch = useDispatch();
-  const isSubmitting: boolean = useSelector(
-    (state: RootState) => state.isSubmitting
-  );
+  const isSubmitting = useSelector((state: RootState) => state.isSubmitting);
 
   const {
     register,
