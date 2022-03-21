@@ -47,11 +47,6 @@ const NavBarMobile = ({ user }) => {
               <Icon as={FiPlusSquare} w={6} h={6} />
             </Link>
           </NextLink>
-          <NextLink href="/my-profile" passHref>
-            <Link color={color}>
-              <Icon as={FiUser} w={6} h={6} />
-            </Link>
-          </NextLink>
           {user.username ? (
             <NextLink href="/my-profile" passHref>
               <HStack as="button" spacing="10px">
