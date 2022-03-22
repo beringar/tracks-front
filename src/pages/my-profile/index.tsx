@@ -15,6 +15,7 @@ import { Track } from "../../types/Track";
 import { loadAllTracksThunk } from "../../redux/thunks/tracksThunks";
 import { useRouter } from "next/router";
 import { setUserAction } from "../../redux/actions/userActionCreator/userActionCreator";
+import NextLink from "next/link";
 
 const MyProfilePage: NextPage = (): JSX.Element => {
   const dispatch = useDispatch();
@@ -28,7 +29,7 @@ const MyProfilePage: NextPage = (): JSX.Element => {
     localStorage.removeItem("userToken");
     dispatch(setUserAction({}));
     toast({
-      title: "LOGOUT succesfully!",
+      title: "LOGOUT succesful!",
       description: `Come back soon ${name}!`,
       status: "success",
       duration: 9000,
@@ -37,8 +38,8 @@ const MyProfilePage: NextPage = (): JSX.Element => {
     router.push("/home");
   };
 
-  const sortedTracks = tracks
-    .slice()
+  const userTracks = tracks
+    .filter(({ user: { id } }) => id === user.id)
     .sort(
       (a: Track, b: Track) => +new Date(b.createdAt) - +new Date(a.createdAt)
     );
@@ -66,7 +67,15 @@ const MyProfilePage: NextPage = (): JSX.Element => {
       <Heading as="h1" size="md" mb={3} textAlign={"center"}>
         My Tracks
       </Heading>
-      <MyTracksList tracks={sortedTracks} />
+      {userTracks.length === 0 && (
+        <VStack>
+          <Text>You have no tracks yet!</Text>
+          <NextLink href="/new-track" passHref>
+            <Button variant="outline">Click here to add a new track!</Button>
+          </NextLink>
+        </VStack>
+      )}
+      <MyTracksList tracks={userTracks} />
     </Container>
   );
 };

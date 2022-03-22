@@ -134,7 +134,12 @@ describe("Given a createTrackThunk function", () => {
       const toast = jest.fn();
       const reset = jest.fn();
 
-      const createThunk = createTrackThunk(trackToAdd, toast, reset);
+      const createThunk = createTrackThunk(
+        trackToAdd,
+        trackToAdd.user.id,
+        toast,
+        reset
+      );
 
       await createThunk(dispatch);
 

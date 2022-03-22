@@ -35,7 +35,7 @@ export const deleteTrackThunk =
   };
 
 export const createTrackThunk =
-  (track, toast, reset) => async (dispatch: AppDispatch) => {
+  (track, userId, toast, reset) => async (dispatch: AppDispatch) => {
     dispatch(setSubmittingAction());
     const formData = new FormData();
     formData.append("name", track.name);
@@ -44,7 +44,7 @@ export const createTrackThunk =
     formData.append("kids", track.kids);
     formData.append("seasons", track.seasons);
     formData.append("description", track.description);
-    formData.append("user", "6228d9e2d3b484d4871608ee");
+    formData.append("user", userId);
     formData.append("image", track.image[0]);
     formData.append("gpx", track.gpx[0]);
 

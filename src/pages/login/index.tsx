@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
-import { Container, Heading } from "@chakra-ui/react";
+import NextLink from "next/link";
+import { Container, Heading, Text, VStack, Button } from "@chakra-ui/react";
 import LoginForm from "../../components/LoginForm/LoginForm";
 
 const LoginPage: NextPage = (): JSX.Element => {
@@ -17,6 +18,12 @@ const LoginPage: NextPage = (): JSX.Element => {
           Login
         </Heading>
         <LoginForm />
+        <VStack spacing="18px" mt={5}>
+          <Text>Don&apos;t have an account?</Text>
+          <NextLink href="/register" passHref>
+            <Button variant="outline">Click here to register now!</Button>
+          </NextLink>
+        </VStack>
       </Container>
     </>
   );

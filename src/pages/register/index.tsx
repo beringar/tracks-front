@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
 import { Container, Heading } from "@chakra-ui/react";
-import TrackForm from "../../components/TrackForm/TrackForm";
+import RegisterForm from "../../components/RegisterForm/RegisterForm";
 
-const AddNewTrackPage: NextPage = (): JSX.Element => {
+const RegisterPage: NextPage = (): JSX.Element => {
   return (
     <>
       <Container
@@ -13,13 +13,13 @@ const AddNewTrackPage: NextPage = (): JSX.Element => {
         p={0}
         alignItems="stretch"
       >
-        <Heading as="h1" size="md" mb={3}>
-          Add new track
+        <Heading as="h1" size="lg" my={5} textAlign="center">
+          Register
         </Heading>
-        <TrackForm />
+        <RegisterForm />
       </Container>
     </>
   );
 };
 
-export default AddNewTrackPage;
+export default RegisterPage;

@@ -9,7 +9,9 @@ import {
   Image,
   IconButton,
   Flex,
+  Link,
 } from "@chakra-ui/react";
+import NextLink from "next/link";
 import TimeAgo from "timeago-react";
 import { Track } from "../../types/Track";
 import { FiEye } from "react-icons/fi";
@@ -44,12 +46,12 @@ const TrackCard = ({
           bg={"gray.100"}
           mt={-6}
           mx={-6}
-          mb={6}
+          mb={3}
           pos={"relative"}
         >
           <Image
             src={image}
-            alt={"gasimba"}
+            alt={name}
             objectFit={"cover"}
             h={"210px"}
             w={"full"}
@@ -65,17 +67,22 @@ const TrackCard = ({
           >
             {refuge}
           </Text>
-          <Heading
-            color={headingColor}
-            fontSize={"2xl"}
-            fontFamily={"body"}
-            fontWeight={500}
-          >
-            {name}
-          </Heading>
+          <NextLink href={`/track/${id}`} passHref>
+            <Link _hover={{ textDecoration: "none" }}>
+              <Heading
+                as="h2"
+                color={headingColor}
+                fontSize={"2xl"}
+                fontFamily={"body"}
+                fontWeight={600}
+              >
+                {name}
+              </Heading>
+            </Link>
+          </NextLink>
           <TrackBadges difficulty={difficulty} kids={kids} />
         </Stack>
-        <Flex mt={6} justify="space-between" align="center">
+        <Flex mt={2} justify="space-between" align="center">
           <Stack direction={"column"} spacing={0} fontSize={"sm"}>
             <Text fontWeight={600}>{user.username}</Text>
             <Text color={"gray.500"}>
