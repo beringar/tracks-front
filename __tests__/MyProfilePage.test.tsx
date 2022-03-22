@@ -26,7 +26,7 @@ describe("Given a MyProfilePage component", () => {
       };
 
       await getServerSideProps(context as GetServerSidePropsContext);
-      const expectedText = await screen.findByText(/Tuc de Sendrós/i);
+      const expectedText = await screen.findByText(/My profile/i);
 
       expect(expectedText).toBeInTheDocument();
     });

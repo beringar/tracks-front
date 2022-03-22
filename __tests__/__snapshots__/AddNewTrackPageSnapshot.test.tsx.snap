@@ -539,7 +539,7 @@ exports[`renders homepage unchanged 1`] = `
           class="chakra-textarea css-1e429u6"
           id="description"
           name="description"
-          placeholder="decribe here your track (main waypoints, difficulties, must see spots...)"
+          placeholder="decribe here your track (main waypoints, difficulties, must see spots...) Max. length: 2000 characters"
           required=""
         />
       </div>

@@ -40,7 +40,7 @@ import { RootState } from "../../redux/store";
 const TrackForm = (): JSX.Element => {
   const toast = useToast();
   const dispatch = useDispatch();
-  const isSubmitting = useSelector((state: RootState) => state.isSubmitting);
+  const { isSubmitting, user } = useSelector((state: RootState) => state);
 
   const {
     register,
@@ -50,7 +50,7 @@ const TrackForm = (): JSX.Element => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    dispatch(createTrackThunk(data, toast, reset));
+    dispatch(createTrackThunk(data, user.id, toast, reset));
   };
 
   return (
@@ -89,7 +89,7 @@ const TrackForm = (): JSX.Element => {
             variant="filled"
             placeholder="select one..."
             {...register("refuge", {
-              required: "you have to select a refuge",
+              required: "You have to select a refuge",
             })}
           >
             <option value="Mallafré">Refugi Ernest Mallafré</option>
@@ -110,7 +110,7 @@ const TrackForm = (): JSX.Element => {
         <FormControl
           isRequired
           {...register("difficulty", {
-            required: "you have to select a level of difficulty",
+            required: "You have to select a level of difficulty",
           })}
         >
           <FormLabel htmlFor="difficulty">track difficulty</FormLabel>
@@ -185,7 +185,7 @@ const TrackForm = (): JSX.Element => {
         isRequired
         mb={4}
         {...register("seasons", {
-          required: "you have to select at least one season",
+          required: "You have to select at least one recommended season",
         })}
       >
         <FormLabel as="legend">recommended seasons</FormLabel>
@@ -211,7 +211,7 @@ const TrackForm = (): JSX.Element => {
         <FormLabel htmlFor="description">description</FormLabel>
         <Textarea
           id="description"
-          placeholder="decribe here your track (main waypoints, difficulties, must see spots...)"
+          placeholder="decribe here your track (main waypoints, difficulties, must see spots...) Max. length: 2000 characters"
           resize="vertical"
           variant="filled"
           h={120}
