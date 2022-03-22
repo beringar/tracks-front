@@ -17,9 +17,9 @@ describe("Given a EditTrackPage component", () => {
 
       render(<WrappedComponent />);
 
-      const expectedText = await screen.findByText(/4 summits/i);
+      const expectedText = await screen.findAllByText(/Update track/i);
 
-      expect(expectedText).toBeInTheDocument();
+      expect(expectedText[0]).toBeInTheDocument();
     });
   });
 });

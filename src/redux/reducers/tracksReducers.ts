@@ -29,6 +29,17 @@ const tracksReducers = (
       newTracks = [...currentTracks, action.track];
       break;
 
+    case actionTypes.updateTrack:
+      newTracks = [
+        ...currentTracks.map((track) => {
+          if (track.id === action.track.id) {
+            return action.track;
+          }
+          return track;
+        }),
+      ];
+      break;
+
     default:
       newTracks = [...currentTracks];
       break;

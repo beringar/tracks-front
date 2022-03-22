@@ -34,7 +34,7 @@ import {
 import { useForm } from "react-hook-form";
 import AlertInfo from "../AlertInfo/AltertInfo";
 import { useDispatch, useSelector } from "react-redux";
-import { createTrackThunk } from "../../redux/thunks/tracksThunks";
+import { updateTrackThunk } from "../../redux/thunks/tracksThunks";
 import { RootState } from "../../redux/store";
 import { useEffect, useState } from "react";
 
@@ -49,18 +49,43 @@ const TrackEditForm = ({ track }): JSX.Element => {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm();
+  } = useForm({
+    defaultValues: track,
+  });
 
   useEffect(() => {
     setTrackToUpdate(track);
   }, [track]);
 
-  useEffect(() => {
-    reset(trackToUpdate);
-  }, [trackToUpdate, reset]);
-
   const onSubmit = async (data) => {
-    dispatch(createTrackThunk(data, user.id, toast, reset));
+    dispatch(updateTrackThunk(track.id, data, toast, reset));
+  };
+
+  const onChangeSwitchCheckboxes = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const property = event.target.name;
+    setTrackToUpdate({
+      ...trackToUpdate,
+      [property]:
+        event.target.value === "kids"
+          ? event.target.checked
+          : event.target.value,
+    });
+  };
+
+  const setDifficulty = (value) => {
+    setTrackToUpdate({
+      ...trackToUpdate,
+      difficulty: value,
+    });
+  };
+
+  const setSeasons = (values) => {
+    setTrackToUpdate({
+      ...trackToUpdate,
+      seasons: values,
+    });
   };
 
   return (
@@ -124,7 +149,12 @@ const TrackEditForm = ({ track }): JSX.Element => {
           })}
         >
           <FormLabel htmlFor="difficulty">track difficulty</FormLabel>
-          <RadioGroup id="difficulty" name="difficulty">
+          <RadioGroup
+            id="difficulty"
+            name="difficulty"
+            onChange={setDifficulty}
+            value={trackToUpdate?.difficulty}
+          >
             <HStack spacing="18px">
               <Radio
                 value="low"
@@ -188,7 +218,14 @@ const TrackEditForm = ({ track }): JSX.Element => {
         <FormLabel htmlFor="kidsswitch" mb="0">
           Kids friendly
         </FormLabel>
-        <Switch id="kidsswitch" colorScheme="pink" {...register("kids")} />
+        <Switch
+          id="kidsswitch"
+          value={"kids"}
+          colorScheme="pink"
+          {...register("kids")}
+          isChecked={trackToUpdate?.kids}
+          onChange={onChangeSwitchCheckboxes}
+        />
       </FormControl>
       <FormControl
         as="fieldset"
@@ -199,7 +236,11 @@ const TrackEditForm = ({ track }): JSX.Element => {
         })}
       >
         <FormLabel as="legend">recommended seasons</FormLabel>
-        <CheckboxGroup colorScheme="green">
+        <CheckboxGroup
+          colorScheme="green"
+          onChange={setSeasons}
+          value={trackToUpdate?.seasons}
+        >
           <HStack spacing={4}>
             <Checkbox value="spring" {...register("seasons")}>
               <Icon as={FaLeaf} w={7} h={7} color="#32CD32" />
@@ -251,6 +292,7 @@ const TrackEditForm = ({ track }): JSX.Element => {
           type="file"
           placeholder="choose a nice picture..."
           {...register("image", {
+            required: false,
             validate: {
               lessThan1MB: (files) =>
                 files[0]?.size < 1000000 ||
@@ -265,7 +307,7 @@ const TrackEditForm = ({ track }): JSX.Element => {
         />
         {errors.image && <AlertInfo title={errors.image.message} />}
       </FormControl>
-      <FormControl mb={4}>
+      <FormControl isRequired mb={4}>
         <FormLabel htmlFor="image">GPX track file</FormLabel>
         <Input
           size="lg"
@@ -276,6 +318,7 @@ const TrackEditForm = ({ track }): JSX.Element => {
           variant="filled"
           type="file"
           {...register("gpx", {
+            required: "Please upload GPX file",
             validate: {
               lessThan500KB: (files) =>
                 files[0]?.size < 500000 ||
