@@ -7,3 +7,7 @@ export interface Action {
 export interface ILoadAllTracksAction extends Action {
   tracks: Track[];
 }
+
+export interface IUpdateTracksAction extends Action {
+  track: Track;
+}

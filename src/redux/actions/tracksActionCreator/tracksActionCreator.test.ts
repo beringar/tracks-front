@@ -3,6 +3,7 @@ import {
   deleteTrackAction,
   loadAllTracksAction,
   loadTrackAction,
+  updateTrackAction,
 } from "./tracksActionCreator";
 import actionTypes from "../actionTypes";
 import { Track } from "../../../types/Track";
@@ -129,6 +130,35 @@ describe("Given a loadTrackAction", () => {
 
       const expectedAction = { type: "load-track", track: track };
       const action = loadTrackAction(track);
+      expect(action).toEqual(expectedAction);
+    });
+  });
+});
+
+describe("Given a updateTrackAction", () => {
+  describe("When it receives a track", () => {
+    test("Then it should return an action update-track", () => {
+      const track: Track = {
+        name: "Tuc de Sendrós per llac de Saboredo",
+        refuge: "Saboredo",
+        difficulty: "normal",
+        kids: true,
+        seasons: ["spring", "summer"],
+        description:
+          "Description of track, this route is very appealing because...",
+        image: "https://mapio.net/images-p/7224428.jpg",
+        gpx: "http://www.apatita.com/gps/aiguestortes_2_amitges_saboredo_colomers.zip",
+        user: {
+          username: "string",
+          id: "string",
+        },
+        id: "6229bdbccf53a1fa6ac36821",
+        createdAt: "datefake",
+        updatedAt: "datefake",
+      };
+
+      const expectedAction = { type: "update-track", track };
+      const action = updateTrackAction(track);
       expect(action).toEqual(expectedAction);
     });
   });

@@ -277,4 +277,75 @@ describe("Given a tracksReducers function", () => {
       expect(newTracks.length).toEqual(3);
     });
   });
+
+  describe("When called an updateTrackAction", () => {
+    test("Then should return the list of tracks with the updated track", () => {
+      const currentTracks: Track[] = [
+        {
+          name: "Tuc de Sendrós per llac de Saboredo",
+          refuge: "Saboredo",
+          difficulty: "normal",
+          kids: true,
+          seasons: ["spring", "summer"],
+          description:
+            "Description of track, this route is very appealing because...",
+          image: "https://mapio.net/images-p/7224428.jpg",
+          gpx: "http://www.apatita.com/gps/aiguestortes_2_amitges_saboredo_colomers.zip",
+          user: {
+            username: "miki",
+            id: "6229bdbccf53a1fa6ac36821",
+          },
+          id: "6229bdbccf53a1fa6ac36821",
+          createdAt: "fake",
+          updatedAt: "fake",
+        },
+        {
+          name: "Tuc de Sendrós per llac de Saboredo",
+          refuge: "Saboredo",
+          difficulty: "normal",
+          kids: true,
+          seasons: ["spring", "summer"],
+          description:
+            "Description of track, this route is very appealing because...",
+          image: "https://mapio.net/images-p/7224428.jpg",
+          gpx: "http://www.apatita.com/gps/aiguestortes_2_amitges_saboredo_colomers.zip",
+          user: {
+            username: "miki",
+            id: "6229bdbccf53a1fa6ac36821",
+          },
+          id: "6229bdbccf53a1fa6ac36821",
+          createdAt: "fake",
+          updatedAt: "fake",
+        },
+      ];
+
+      const trackToUpdate: Track = {
+        name: "Tuc de Sendrós per llac de Saboredo",
+        refuge: "SaboredoUpdated",
+        difficulty: "normal",
+        kids: true,
+        seasons: ["spring", "summer"],
+        description:
+          "Description of track, this route is very appealing because...",
+        image: "https://mapio.net/images-p/7224428.jpg",
+        gpx: "http://www.apatita.com/gps/aiguestortes_2_amitges_saboredo_colomers.zip",
+        user: {
+          username: "miki",
+          id: "6229bdbccf53a1fa6ac36821",
+        },
+        id: "6229bdbccf53a1fa6ac36821",
+        createdAt: "fake",
+        updatedAt: "fake",
+      };
+
+      const action = {
+        type: actionTypes.updateTrack,
+        track: trackToUpdate,
+      };
+
+      const updatedTracks = tracksReducers(currentTracks, action);
+
+      expect(updatedTracks.length).toBe(2);
+    });
+  });
 });

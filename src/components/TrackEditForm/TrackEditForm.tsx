@@ -34,7 +34,10 @@ import {
 import { useForm } from "react-hook-form";
 import AlertInfo from "../AlertInfo/AltertInfo";
 import { useDispatch, useSelector } from "react-redux";
-import { createTrackThunk } from "../../redux/thunks/tracksThunks";
+import {
+  createTrackThunk,
+  updateTrackThunk,
+} from "../../redux/thunks/tracksThunks";
 import { RootState } from "../../redux/store";
 import { useEffect, useState } from "react";
 
@@ -66,7 +69,7 @@ const TrackEditForm = ({ track }): JSX.Element => {
   }, [trackToUpdate, reset]); */
 
   const onSubmit = async (data) => {
-    dispatch(createTrackThunk(data, user.id, toast, reset));
+    dispatch(updateTrackThunk(track.id, data, toast, reset));
   };
 
   const onChangeSwitchCheckboxes = (

@@ -90,7 +90,7 @@ export const updateTrackThunk =
     formData.append("image", track.image[0]);
 
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_TRACKS_API_URL}tracks/edit/${trackId}`,
+      `${process.env.NEXT_PUBLIC_TRACKS_API_URL}tracks/update/${trackId}`,
       {
         method: "PATCH",
         body: formData,
