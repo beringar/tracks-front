@@ -291,19 +291,7 @@ const TrackEditForm = ({ track }): JSX.Element => {
           variant="filled"
           type="file"
           placeholder="choose a nice picture..."
-          {...register("image", {
-            required: false,
-            validate: {
-              lessThan1MB: (files) =>
-                files[0]?.size < 1000000 ||
-                "Too big! Maximum size allowed is 1 MB",
-              acceptedFormats: (files) =>
-                ["image/jpeg", "image/png", "image/gif"].includes(
-                  files[0]?.type
-                ) ||
-                "Wrong image extension! Only PNG, JPEG or GIF are accepted",
-            },
-          })}
+          {...register("image")}
         />
         {errors.image && <AlertInfo title={errors.image.message} />}
       </FormControl>
@@ -317,17 +305,7 @@ const TrackEditForm = ({ track }): JSX.Element => {
           name="gpx"
           variant="filled"
           type="file"
-          {...register("gpx", {
-            required: "Please upload GPX file",
-            validate: {
-              lessThan500KB: (files) =>
-                files[0]?.size < 500000 ||
-                "Too big! Maximum size allowed is 500 KB",
-              acceptedFormats: (files) =>
-                files[0]?.name.split(".").pop().toLowerCase() === "gpx" ||
-                "Wrong file extension! Only GPX files are accepted",
-            },
-          })}
+          {...register("gpx")}
         />
         {errors.gpx && <AlertInfo title={errors.gpx.message} />}
       </FormControl>
