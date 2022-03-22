@@ -51,8 +51,9 @@ const LoginForm = (): JSX.Element => {
             <FormLabel>username</FormLabel>
             <Input
               id="username"
+              name="username"
               type="text"
-              placeholder="Username"
+              placeholder="your username"
               variant="filled"
               {...register("username", {
                 required: "Please enter a username",
@@ -65,7 +66,7 @@ const LoginForm = (): JSX.Element => {
             <Input
               id="password"
               type="password"
-              placeholder="Password"
+              placeholder="your password"
               variant="filled"
               {...register("password", {
                 required: "Please enter a password",

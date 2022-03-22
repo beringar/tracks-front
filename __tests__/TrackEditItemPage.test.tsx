@@ -2,12 +2,12 @@ import { render, screen } from "@testing-library/react";
 import "whatwg-fetch";
 import { wrapper } from "../src/redux/store";
 import { GetStaticPropsContext } from "next";
-import TrackItemPage, { getStaticProps } from "../src/pages/track/[id]";
+import EditTrackPage, { getStaticProps } from "../src/pages/edit-track/[id]";
 
-describe("Given a TrackItemPage component", () => {
+describe("Given a EditTrackPage component", () => {
   describe("When it's rendered", () => {
     test("It should render a track", async () => {
-      const WrappedComponent = await wrapper.withRedux(TrackItemPage);
+      const WrappedComponent = await wrapper.withRedux(EditTrackPage);
 
       const context = {
         params: { id: "6239018bfb5f2c811f7ce309" },

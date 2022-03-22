@@ -158,6 +158,7 @@ const RegisterForm = (): JSX.Element => {
             <FormLabel>password</FormLabel>
             <Input
               type="password"
+              name="password"
               placeholder="create a strong password"
               variant="filled"
               {...register("password", {

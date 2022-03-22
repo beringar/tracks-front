@@ -63,23 +63,23 @@ describe("Given a loadTrackThunk function", () => {
     test("then it should call a dispatch", async () => {
       const dispatch = jest.fn();
       const track = {
-        name: "new test with isSubmitting state added to redux store with apiReducer",
-        refuge: "Saboredo",
-        difficulty: "low",
+        name: "4 summits: Mil Potros, Pinetó, Rocablanca and Lo Tessó",
+        refuge: "Pla de la Font",
+        difficulty: "normal",
         kids: true,
-        seasons: ["autumn"],
+        seasons: ["spring,summer,autumn"],
         description:
-          "We test all the fields at once by providing invalid data - no name, too long description and the number of serving that is above 10. Then we submit the form and check that the number of error messages (rendered as span with alert role) is the same as the number of fields with errors. ",
+          "Leaving the Pla de la Font Refuge, we face the climb towards the Fogueroix pass, shortly before reaching the pass we turn right and enter a small pine forest, at the exit of the forest we can already see the peak of a thousand Potros, before passing through the hole of the Bread while contemplating the views towards the Vall d'Escrita, we ascend to the first summit Mil Potros and then careening the Pinetó. Now heading north we begin to climb the ridge of Roca Blanca, to the west we see the impressive Vall de Cabanes. Here we find a step of IIº before making the third peak. We descend towards the Son pass, always heading north we ascend to the Teso. To the east, going down the Teso shovel, we find two well-marked forests, we go down between the two forests until we reach Les Estanyeres and we come across the path that is Son, this path will take us to the refuge.",
         image:
-          "https://firebasestorage.googleapis.com/v0/b/tracks-beringar.appspot.com/o/1647792812850_beringar_network99.jpg?alt=media&token=09763b62-35d3-408c-a0f2-7c2cc0606f3e",
-        gpx: "https://firebasestorage.googleapis.com/v0/b/tracks-beringar.appspot.com/o/1647792812858_RUTA%20B%20%20Entorno%20Estany%20de%20Sant%20Maurici%20-%20Espot.gpx?alt=media&token=a5f53300-7c73-43bf-a915-88b61e54f1a8",
+          "https://firebasestorage.googleapis.com/v0/b/tracks-beringar.appspot.com/o/1647903115279_4cimspladelafont.jpg?alt=media&token=d4e5562e-c3d6-460a-bb2d-44269eff0bf9",
+        gpx: "https://firebasestorage.googleapis.com/v0/b/tracks-beringar.appspot.com/o/1647903115281_4-cims-pla-de-la-font.gpx?alt=media&token=e6067cac-31ae-4bcc-9ed7-384b2afe5955",
         user: {
-          username: "Beren",
-          id: "6228d9e2d3b484d4871608ee",
+          username: "miki89",
+          id: "6238f532784bd2e6462e087e",
         },
-        createdAt: "2022-03-20T16:13:32.660Z",
-        updatedAt: "2022-03-20T16:13:33.667Z",
-        id: "623752aca6bbb8435d634b9c",
+        createdAt: "2022-03-21T22:51:55.172Z",
+        updatedAt: "2022-03-21T22:51:56.234Z",
+        id: "6239018bfb5f2c811f7ce309",
       };
 
       const action = {
