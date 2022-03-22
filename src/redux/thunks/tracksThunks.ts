@@ -88,6 +88,7 @@ export const updateTrackThunk =
     formData.append("seasons", JSON.stringify(track.seasons));
     formData.append("description", track.description);
     formData.append("image", track.image[0]);
+    formData.append("gpx", track.gpx[0]);
 
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_TRACKS_API_URL}tracks/update/${trackId}`,

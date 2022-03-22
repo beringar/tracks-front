@@ -34,10 +34,7 @@ import {
 import { useForm } from "react-hook-form";
 import AlertInfo from "../AlertInfo/AltertInfo";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  createTrackThunk,
-  updateTrackThunk,
-} from "../../redux/thunks/tracksThunks";
+import { updateTrackThunk } from "../../redux/thunks/tracksThunks";
 import { RootState } from "../../redux/store";
 import { useEffect, useState } from "react";
 
@@ -59,14 +56,6 @@ const TrackEditForm = ({ track }): JSX.Element => {
   useEffect(() => {
     setTrackToUpdate(track);
   }, [track]);
-
-  const resetForm = () => {
-    reset(trackToUpdate);
-  };
-  /* useEffect(() => {
-    reset(trackToUpdate);
-    
-  }, [trackToUpdate, reset]); */
 
   const onSubmit = async (data) => {
     dispatch(updateTrackThunk(track.id, data, toast, reset));
@@ -317,6 +306,30 @@ const TrackEditForm = ({ track }): JSX.Element => {
           })}
         />
         {errors.image && <AlertInfo title={errors.image.message} />}
+      </FormControl>
+      <FormControl isRequired mb={4}>
+        <FormLabel htmlFor="image">GPX track file</FormLabel>
+        <Input
+          size="lg"
+          fontSize="md"
+          py={2}
+          id="gpx"
+          name="gpx"
+          variant="filled"
+          type="file"
+          {...register("gpx", {
+            required: "Please upload GPX file",
+            validate: {
+              lessThan500KB: (files) =>
+                files[0]?.size < 500000 ||
+                "Too big! Maximum size allowed is 500 KB",
+              acceptedFormats: (files) =>
+                files[0]?.name.split(".").pop().toLowerCase() === "gpx" ||
+                "Wrong file extension! Only GPX files are accepted",
+            },
+          })}
+        />
+        {errors.gpx && <AlertInfo title={errors.gpx.message} />}
       </FormControl>
       <Center>
         <Button
