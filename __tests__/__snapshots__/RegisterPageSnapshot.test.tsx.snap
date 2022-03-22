@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders login unchanged 1`] = `
+<div>
+  <div
+    class="chakra-container css-1fffh61"
+  >
+    <h1
+      class="chakra-heading css-my13z0"
+    >
+      Login
+    </h1>
+    <div
+      class="css-gmuwbf"
+    >
+      <div
+        class="css-njifjv"
+      >
+        <form
+          autocomplete="off"
+          novalidate=""
+        >
+          <div
+            class="chakra-form-control css-1itv5e3"
+            role="group"
+          >
+            <label
+              class="chakra-form__label css-uvho5g"
+              for="field-1"
+              id="field-1-label"
+            >
+              username
+              <span
+                aria-hidden="true"
+                class="chakra-form__required-indicator css-0"
+                role="presentation"
+              >
+                *
+              </span>
+            </label>
+            <input
+              aria-required="true"
+              class="chakra-input css-0"
+              id="username"
+              name="username"
+              placeholder="your username"
+              required=""
+              type="text"
+            />
+          </div>
+          <div
+            class="chakra-form-control css-1itv5e3"
+            role="group"
+          >
+            <label
+              class="chakra-form__label css-uvho5g"
+              for="field-2"
+              id="field-2-label"
+            >
+              password
+              <span
+                aria-hidden="true"
+                class="chakra-form__required-indicator css-0"
+                role="presentation"
+              >
+                *
+              </span>
+            </label>
+            <input
+              aria-required="true"
+              class="chakra-input css-0"
+              id="password"
+              name="password"
+              placeholder="your password"
+              required=""
+              type="password"
+            />
+          </div>
+          <div
+            class="css-gmuwbf"
+          >
+            <button
+              class="chakra-button css-ix34nz"
+              type="submit"
+            >
+              Login
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      class="chakra-stack css-1xr1bob"
+    >
+      <p
+        class="chakra-text css-0"
+      >
+        Don't have an account?
+      </p>
+      <button
+        class="chakra-button css-5c2176"
+        href="/register"
+        type="button"
+      >
+        Click here to register now!
+      </button>
+    </div>
+  </div>
+</div>
+`;

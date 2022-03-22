@@ -55,6 +55,9 @@ const MyTracksItem = ({ name, id }: MyTracksItemProps): JSX.Element => {
               aria-label="Edit track"
               icon={<FiEdit />}
               isRound
+              onClick={(event: React.MouseEvent) => {
+                router.push(`/edit-track/${id}`);
+              }}
             />
             <IconButton
               colorScheme="red"
