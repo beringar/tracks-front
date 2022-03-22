@@ -50,6 +50,7 @@ const TrackForm = (): JSX.Element => {
   } = useForm();
 
   const onSubmit = async (data) => {
+    console.log(data);
     dispatch(createTrackThunk(data, user.id, toast, reset));
   };
 
@@ -63,7 +64,7 @@ const TrackForm = (): JSX.Element => {
           type="text"
           placeholder="tip: add the names of departure and arrival spots"
           {...register("name", {
-            required: "Please enter a track name",
+            //    required: "Please enter a track name",
             minLength: {
               value: 8,
               message: "Track name is too short, be original!",
@@ -89,7 +90,7 @@ const TrackForm = (): JSX.Element => {
             variant="filled"
             placeholder="select one..."
             {...register("refuge", {
-              required: "You have to select a refuge",
+              //     required: "You have to select a refuge",
             })}
           >
             <option value="Mallafré">Refugi Ernest Mallafré</option>
@@ -110,7 +111,7 @@ const TrackForm = (): JSX.Element => {
         <FormControl
           isRequired
           {...register("difficulty", {
-            required: "You have to select a level of difficulty",
+            //   required: "You have to select a level of difficulty",
           })}
         >
           <FormLabel htmlFor="difficulty">track difficulty</FormLabel>
@@ -216,7 +217,7 @@ const TrackForm = (): JSX.Element => {
           variant="filled"
           h={120}
           {...register("description", {
-            required: "Please enter a track description",
+            //required: "Please enter a track description",
             minLength: {
               value: 60,
               message: "Track description is too short, be original!",
@@ -241,8 +242,8 @@ const TrackForm = (): JSX.Element => {
           type="file"
           placeholder="choose a nice picture..."
           {...register("image", {
-            required: "Please upload image file",
-            validate: {
+            //required: "Please upload image file",
+            /* validate: {
               lessThan1MB: (files) =>
                 files[0]?.size < 1000000 ||
                 "Too big! Maximum size allowed is 1 MB",
@@ -251,7 +252,7 @@ const TrackForm = (): JSX.Element => {
                   files[0]?.type
                 ) ||
                 "Wrong image extension! Only PNG, JPEG or GIF are accepted",
-            },
+            }, */
           })}
         />
         {errors.image && <AlertInfo title={errors.image.message} />}
@@ -267,15 +268,15 @@ const TrackForm = (): JSX.Element => {
           variant="filled"
           type="file"
           {...register("gpx", {
-            required: "Please upload GPX file",
-            validate: {
+            //required: "Please upload GPX file",
+            /* validate: {
               lessThan500KB: (files) =>
                 files[0]?.size < 500000 ||
                 "Too big! Maximum size allowed is 500 KB",
               acceptedFormats: (files) =>
                 files[0]?.name.split(".").pop().toLowerCase() === "gpx" ||
                 "Wrong file extension! Only GPX files are accepted",
-            },
+            }, */
           })}
         />
         {errors.gpx && <AlertInfo title={errors.gpx.message} />}

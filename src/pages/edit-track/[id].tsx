@@ -19,11 +19,10 @@ const EditTrackPage = (): JSX.Element => {
       p={0}
       alignItems="stretch"
     >
-      <Heading as="h1" size="md" mb={3}>
-        Add new track
+      <Heading as="h1" size="lg" mb={3}>
+        Update track
       </Heading>
       <TrackEditForm track={track} />
-      <TrackCard track={track} />
     </Container>
   );
 };

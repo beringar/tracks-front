@@ -42,7 +42,7 @@ export const createTrackThunk =
     formData.append("refuge", track.refuge);
     formData.append("difficulty", track.difficulty);
     formData.append("kids", track.kids);
-    formData.append("seasons", track.seasons);
+    formData.append("seasons", JSON.stringify(track.seasons));
     formData.append("description", track.description);
     formData.append("user", userId);
     formData.append("image", track.image[0]);
@@ -68,6 +68,47 @@ export const createTrackThunk =
     } else {
       toast({
         title: "ERROR creating track!",
+        description: responseServer.message,
+        status: "error",
+        duration: 9000,
+        isClosable: true,
+      });
+    }
+    dispatch(unsetSubmittingAction());
+  };
+
+export const updateTrackThunk =
+  (trackId, track, toast, reset) => async (dispatch: AppDispatch) => {
+    dispatch(setSubmittingAction());
+    const formData = new FormData();
+    formData.append("name", track.name);
+    formData.append("refuge", track.refuge);
+    formData.append("difficulty", track.difficulty);
+    formData.append("kids", track.kids);
+    formData.append("seasons", JSON.stringify(track.seasons));
+    formData.append("description", track.description);
+    formData.append("image", track.image[0]);
+
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_TRACKS_API_URL}tracks/edit/${trackId}`,
+      {
+        method: "PATCH",
+        body: formData,
+      }
+    );
+    const responseServer = await response.json();
+    if (response.ok) {
+      toast({
+        title: "Track UPDATED!",
+        description: responseServer.message,
+        status: "success",
+        duration: 9000,
+        isClosable: true,
+      });
+      reset();
+    } else {
+      toast({
+        title: "ERROR updating track!",
         description: responseServer.message,
         status: "error",
         duration: 9000,
