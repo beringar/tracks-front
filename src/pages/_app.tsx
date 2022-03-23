@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     <ChakraProvider resetCSS theme={theme}>
       <Layout>
         <ScaleFade key={router.route} initialScale={0.9} in={true}>
-          <NextNProgress height={6} options={{ showSpinner: false }} />
+          <NextNProgress height={8} options={{ showSpinner: false }} />
           <Component {...pageProps} />
         </ScaleFade>
       </Layout>

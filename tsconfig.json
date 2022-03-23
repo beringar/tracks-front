@@ -19,7 +19,6 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "mydocs/HomePageTEST",
     "src/components/MapTest/MapTest.js"
   ],
   "exclude": ["node_modules"]
