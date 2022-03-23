@@ -315,7 +315,7 @@ const TrackEditForm = ({ track }): JSX.Element => {
           colorScheme="green"
           type="submit"
           isLoading={isSubmitting}
-          loadingText="Creating track..."
+          loadingText="Updating track..."
         >
           Update track
         </Button>

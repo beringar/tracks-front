@@ -7,18 +7,17 @@ import {
   HStack,
   Avatar,
   Text,
-  IconButton,
 } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { DarkModeSwitch } from "../DarkModeSwitch/DarkModeSwitch";
 
 import styled from "@emotion/styled";
-import { FiHome, FiPlusSquare, FiUser } from "react-icons/fi";
+import { FiHome, FiPlusSquare } from "react-icons/fi";
 import { FiLogIn } from "react-icons/fi";
 
 const StickyNavMobile = styled(Flex)`
   position: fixed;
-  z-index: 999;
+  z-index: 1100;
   bottom: 0;
   backdrop-filter: saturate(180%) blur(20px);
   transition: background-color 0.1 ease-in-out;
@@ -42,11 +41,13 @@ const NavBarMobile = ({ user }) => {
               <Icon as={FiHome} w={6} h={6} />
             </Link>
           </NextLink>
-          <NextLink href="/new-track" passHref>
-            <Link color={color}>
-              <Icon as={FiPlusSquare} w={6} h={6} />
-            </Link>
-          </NextLink>
+          {user.username && (
+            <NextLink href="/new-track" passHref>
+              <Link color={color}>
+                <Icon as={FiPlusSquare} w={6} h={6} />
+              </Link>
+            </NextLink>
+          )}
           {user.username ? (
             <NextLink href="/my-profile" passHref>
               <HStack as="button" spacing="10px">

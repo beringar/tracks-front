@@ -15,6 +15,12 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "mydocs/HomePageTEST"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "mydocs/HomePageTEST",
+    "src/components/MapTest/MapTest.js"
+  ],
   "exclude": ["node_modules"]
 }
