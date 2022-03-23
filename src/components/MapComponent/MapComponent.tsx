@@ -8,15 +8,21 @@ import {
   ZoomControl,
   Marker,
 } from "react-leaflet";
-import { Icon } from "leaflet";
+
+import L from "leaflet";
+import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
+import markerIcon from "leaflet/dist/images/marker-icon.png";
+import markerShadow from "leaflet/dist/images/marker-shadow.png";
+
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconUrl: markerIcon.src,
+  iconRetinaUrl: markerIcon2x.src,
+  shadowUrl: markerShadow.src,
+});
 
 const MapComponent = ({ gpxUrl }): JSX.Element => {
   const [positionsGpx, setPositionsGpx] = useState<number[][]>();
-
-  const startIcon = new Icon({
-    iconUrl: "/img/starttrack.svg",
-    iconSize: [25, 25],
-  });
 
   useEffect(() => {
     (async () => {
@@ -45,7 +51,7 @@ const MapComponent = ({ gpxUrl }): JSX.Element => {
             positions={positionsGpx}
           />
           <ZoomControl position="bottomleft" />
-          <Marker position={positionsGpx[0]} icon={startIcon}></Marker>
+          <Marker position={positionsGpx[0]}></Marker>
         </MapContainer>
       )}
     </>
