@@ -1,14 +1,35 @@
+import dynamic from "next/dynamic";
+import { useMemo } from "react";
 import TrackCard from "../../components/TrackCard/TrackCard";
 import { Track } from "../../types/Track";
 import { useSelector } from "react-redux";
 import { RootState, wrapper } from "../../redux/store";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { loadTrackThunk } from "../../redux/thunks/tracksThunks";
+import { Heading, Spinner, VStack } from "@chakra-ui/react";
 
 const TrackItemPage = (): JSX.Element => {
   const track: Track = useSelector((state: RootState) => state.track);
+  const MapComponentNoSSR = useMemo(
+    () =>
+      dynamic(() => import("../../components/MapComponent/MapComponent"), {
+        loading: () => (
+          <VStack my={6} spacing="18px">
+            <Spinner size="xl" />
+            <Heading textAlign={"center"}>Track map is loading...</Heading>
+          </VStack>
+        ),
+        ssr: false,
+      }),
+    []
+  );
 
-  return <TrackCard track={track} />;
+  return (
+    <>
+      <TrackCard track={track} />
+      <MapComponentNoSSR gpxUrl={track.gpx} />
+    </>
+  );
 };
 
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(

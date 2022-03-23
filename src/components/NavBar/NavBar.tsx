@@ -18,7 +18,7 @@ import styled from "@emotion/styled";
 
 const StickyNav = styled(Flex)`
   position: sticky;
-  z-index: 999;
+  z-index: 1100;
   top: 0;
   backdrop-filter: saturate(180%) blur(20px);
   transition: background-color 0.1 ease-in-out;
@@ -43,11 +43,13 @@ const NavBar = ({ user }) => {
           </HStack>
           <HStack as="nav" spacing="5">
             <NextLink href="/home" passHref>
-              <Link color={textColor}>Home</Link>
+              <Link color={textColor}>All tracks</Link>
             </NextLink>
-            <NextLink href="/new-track" passHref>
-              <Link color={textColor}>Add new track</Link>
-            </NextLink>
+            {user.username && (
+              <NextLink href="/new-track" passHref>
+                <Link color={textColor}>Add new track</Link>
+              </NextLink>
+            )}
           </HStack>
           <HStack spacing="24px">
             {user.username ? (
