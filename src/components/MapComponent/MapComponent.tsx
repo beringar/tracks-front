@@ -7,6 +7,8 @@ import {
   TileLayer,
   ZoomControl,
   Marker,
+  LayersControl,
+  LayersControlProps,
 } from "react-leaflet";
 
 import L from "leaflet";
@@ -42,10 +44,18 @@ const MapComponent = ({ gpxUrl }): JSX.Element => {
         <MapContainer
           bounds={positionsGpx}
           scrollWheelZoom={false}
-          style={{ height: "80vh", width: "100%" }}
+          style={{ height: "70vh", width: "100%" }}
           zoomControl={false}
         >
-          <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+          <LayersControl>
+            <LayersControl.BaseLayer checked name="OpenStreetMap Mapnik">
+              <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+            </LayersControl.BaseLayer>
+            <LayersControl.BaseLayer name="OSM Topographic">
+              <TileLayer url="https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png" />
+            </LayersControl.BaseLayer>
+          </LayersControl>
+
           <Polyline
             pathOptions={{ fillColor: "red", color: "blue" }}
             positions={positionsGpx}

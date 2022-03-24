@@ -8,9 +8,27 @@ import { ChakraProvider, ScaleFade } from "@chakra-ui/react";
 import theme from "../theme";
 import type { AppProps } from "next/app";
 import Layout from "../components/Layout/Layout";
-import { wrapper } from "../redux/store";
+import jwt_decode from "jwt-decode";
+import { RootState, wrapper } from "../redux/store";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setUserAction } from "../redux/actions/userActionCreator/userActionCreator";
+import { User } from "../types/User";
 
 function MyApp({ Component, pageProps, router }: AppProps) {
+  const user = useSelector((state: RootState) => state.user);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    (async () => {
+      const token = localStorage.getItem("userToken");
+      if (token) {
+        const user: User = await jwt_decode(token);
+        dispatch(setUserAction(user));
+      }
+    })();
+  }, [dispatch]);
+
   return (
     <ChakraProvider resetCSS theme={theme}>
       <Layout>

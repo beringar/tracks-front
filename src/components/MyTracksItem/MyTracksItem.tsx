@@ -31,8 +31,8 @@ const MyTracksItem = ({ name, id }: MyTracksItemProps): JSX.Element => {
   const toast = useToast();
   const router = useRouter();
 
-  const deleteTrack = (toast, id: string): void => {
-    dispatch(deleteTrackThunk(toast, id));
+  const deleteTrack = (toastToPass, trackId: string): void => {
+    dispatch(deleteTrackThunk(toastToPass, trackId));
   };
 
   return (

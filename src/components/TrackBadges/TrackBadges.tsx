@@ -13,18 +13,26 @@ const getDifficultyBadge = (difficulty: string): JSX.Element => {
   switch (difficulty) {
     case "low":
       return (
-        <Image src={LowDifficulty.src} h="50px" alt="low difficulty track" />
+        <Image
+          src={LowDifficulty.src}
+          h={["30px", "40px"]}
+          alt="low difficulty track"
+        />
       );
     case "high":
       return (
-        <Image src={HighDifficulty.src} h="50px" alt="high difficulty track" />
+        <Image
+          src={HighDifficulty.src}
+          h={["30px", "40px"]}
+          alt="high difficulty track"
+        />
       );
     case "normal":
     default:
       return (
         <Image
           src={NormalDifficulty.src}
-          h="50px"
+          h={["30px", "40px"]}
           alt="normal difficulty track"
         />
       );
@@ -36,7 +44,11 @@ const TrackBadges = ({ difficulty, kids }: TrackBadgesProps): JSX.Element => {
     <HStack spacing="10px">
       {getDifficultyBadge(difficulty)}
       {kids && (
-        <Image src={KidsFriendly.src} h="50px" alt="kids friendly track" />
+        <Image
+          src={KidsFriendly.src}
+          h={["30px", "40px"]}
+          alt="kids friendly track"
+        />
       )}
     </HStack>
   );

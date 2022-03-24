@@ -4,6 +4,7 @@ import {
   deleteTrackThunk,
   loadAllTracksThunk,
   loadTrackThunk,
+  updateTrackThunk,
 } from "./tracksThunks";
 
 describe("Given a loadAllTracksThunk function", () => {
@@ -123,6 +124,46 @@ describe("Given a createTrackThunk function", () => {
         seasons: ["spring", "summer"],
         description:
           "Description of track, this route is very appealing because...",
+        image: ["https://mapio.net/images-p/7224428.jpg"],
+        gpx: [
+          "http://www.apatita.com/gps/aiguestortes_2_amitges_saboredo_colomers.zip",
+        ],
+        user: {
+          username: "miki",
+          id: "6229bdbccf53a1fa6ac36821",
+        },
+      };
+
+      const toast = jest.fn();
+      const reset = jest.fn();
+
+      const createThunk = createTrackThunk(
+        trackToAdd,
+        trackToAdd.user.id,
+        toast,
+        reset
+      );
+
+      await createThunk(dispatch);
+      expect(toast).toHaveBeenCalled();
+      expect(dispatch).toHaveBeenCalled();
+    });
+  });
+});
+
+describe("Given a createTrackThunk function", () => {
+  describe("When it's called with invalid data track", () => {
+    test("Then it should call a toast with error", async () => {
+      const dispatch = jest.fn();
+
+      const trackToAdd = {
+        name: "XXXXXXXXX",
+        refuge: "Saboredo",
+        difficulty: "normal",
+        kids: true,
+        seasons: ["spring", "summer"],
+        description:
+          "Description of track, this route is very appealing because...",
         image: "https://mapio.net/images-p/7224428.jpg",
         gpx: "http://www.apatita.com/gps/aiguestortes_2_amitges_saboredo_colomers.zip",
         user: {
@@ -143,7 +184,79 @@ describe("Given a createTrackThunk function", () => {
 
       await createThunk(dispatch);
 
+      expect(toast).toHaveBeenCalled();
+    });
+  });
+});
+
+describe("Given a updateTrackThunk function", () => {
+  describe("When it's called with a valid track", () => {
+    test("Then it should call a dispatch", async () => {
+      const dispatch = jest.fn();
+
+      const trackToUpdate = {
+        name: "Tuc de Sendrós per llac de Saboredo",
+        refuge: "Saboredo",
+        difficulty: "normal",
+        kids: true,
+        seasons: ["spring", "summer"],
+        description:
+          "Description of track, this route is very appealing because...",
+        image: "https://mapio.net/images-p/7224428.jpg",
+        gpx: "http://www.apatita.com/gps/aiguestortes_2_amitges_saboredo_colomers.zip",
+        user: {
+          username: "miki",
+          id: "6229bdbccf53a1fa6ac36821",
+        },
+        id: "6229bdbccf53a1fa6ac36821",
+      };
+
+      const toast = jest.fn();
+      const reset = jest.fn();
+
+      const updateThunkTest = await updateTrackThunk(
+        trackToUpdate.id,
+        trackToUpdate,
+
+        toast,
+        reset
+      );
+
+      await updateThunkTest(dispatch);
+      expect(toast).toHaveBeenCalled();
       expect(dispatch).toHaveBeenCalled();
+    });
+  });
+
+  describe("When it's called with invalid data track", () => {
+    test("Then it should call a toast with error", async () => {
+      const dispatch = jest.fn();
+
+      const trackToAdd = {
+        name: "XXXXXXXXX",
+        refuge: "Saboredo",
+        difficulty: "normal",
+        kids: true,
+        seasons: ["spring", "summer"],
+        description:
+          "Description of track, this route is very appealing because...",
+        image: "https://mapio.net/images-p/7224428.jpg",
+        gpx: "http://www.apatita.com/gps/aiguestortes_2_amitges_saboredo_colomers.zip",
+        user: {
+          username: "miki",
+          id: "6229bdbccf53a1fa6ac36821",
+        },
+        id: "6229bdbccf53a1fa6ac36821",
+      };
+
+      const toast = jest.fn();
+      const reset = jest.fn();
+
+      const updateT = updateTrackThunk(trackToAdd.id, trackToAdd, toast, reset);
+
+      await updateT(dispatch);
+
+      expect(toast).toHaveBeenCalled();
     });
   });
 });

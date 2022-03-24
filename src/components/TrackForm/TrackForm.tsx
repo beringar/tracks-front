@@ -32,7 +32,7 @@ import {
   FaSnowflake,
 } from "react-icons/fa";
 import { useForm } from "react-hook-form";
-import AlertInfo from "../AlertInfo/AltertInfo";
+import AlertInfo from "../AlertInfo/AlertInfo";
 import { useDispatch, useSelector } from "react-redux";
 import { createTrackThunk } from "../../redux/thunks/tracksThunks";
 import { RootState } from "../../redux/store";

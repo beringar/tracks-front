@@ -10,10 +10,8 @@ import {
 } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { DarkModeSwitch } from "../DarkModeSwitch/DarkModeSwitch";
-
 import styled from "@emotion/styled";
-import { FiHome, FiPlusSquare } from "react-icons/fi";
-import { FiLogIn } from "react-icons/fi";
+import { FiHome, FiPlusSquare, FiLogIn } from "react-icons/fi";
 
 const StickyNavMobile = styled(Flex)`
   position: fixed;
@@ -30,7 +28,7 @@ const StickyNavMobile = styled(Flex)`
 `;
 
 const NavBarMobile = ({ user }) => {
-  const bg = useColorModeValue("white", "gray.900");
+  const bg = useColorModeValue("#f0f0f0", "gray.900");
   const color = useColorModeValue("gray.800", "lightgreen");
   return (
     <StickyNavMobile bg={bg} boxShadow="inner">

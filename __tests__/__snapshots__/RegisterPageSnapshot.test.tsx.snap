@@ -11,8 +11,12 @@ exports[`renders login unchanged 1`] = `
       Login
     </h1>
     <div
-      class="css-gmuwbf"
+      class="chakra-stack css-owjkmg"
     >
+      <img
+        alt="Backpack"
+        class="chakra-image css-14a85xb"
+      />
       <div
         class="css-njifjv"
       >

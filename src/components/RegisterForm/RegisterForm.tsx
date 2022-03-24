@@ -10,10 +10,11 @@ import {
   chakra,
   Text,
   VStack,
+  Image,
 } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { useForm } from "react-hook-form";
-import AlertInfo from "../AlertInfo/AltertInfo";
+import AlertInfo from "../AlertInfo/AlertInfo";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import {
@@ -22,6 +23,7 @@ import {
 } from "../../redux/actions/ApiActionCreator/ApiActionCreator";
 import { useState } from "react";
 import LoginForm from "../LoginForm/LoginForm";
+import Backpack from "../../../public/img/backpack.png";
 
 interface RegisteredUser {
   username?: string;
@@ -98,7 +100,8 @@ const RegisterForm = (): JSX.Element => {
   }
 
   return (
-    <VStack spacing="18px">
+    <VStack spacing="12px">
+      <Image src={Backpack.src} h="25vh" alt="Backpack" />
       <Box
         maxW={"445px"}
         w={"full"}
