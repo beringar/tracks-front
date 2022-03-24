@@ -21,7 +21,7 @@ export const loginUserThunk =
     );
     const responseData = await response.json();
     if (responseData.token) {
-      const userData = await jwtDecode(responseData.token);
+      const userData = jwtDecode(responseData.token);
       localStorage.setItem("userToken", responseData.token);
       dispatch(setUserAction(userData));
       toast({

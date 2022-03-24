@@ -6,6 +6,8 @@ import {
   Center,
   FormControl,
   FormLabel,
+  VStack,
+  Image,
 } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
@@ -13,7 +15,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import { RootState } from "../../redux/store";
 import { loginUserThunk } from "../../redux/thunks/userThunks";
-import AlertInfo from "../AlertInfo/AltertInfo";
+import AlertInfo from "../AlertInfo/AlertInfo";
+import Backpack from "../../../public/img/backpack.png";
 
 const LoginForm = (): JSX.Element => {
   const dispatch = useDispatch();
@@ -37,7 +40,8 @@ const LoginForm = (): JSX.Element => {
   };
 
   return (
-    <Center>
+    <VStack>
+      <Image src={Backpack.src} h="25vh" alt="Backpack" p={2} />
       <Box
         maxW={"445px"}
         w={"full"}
@@ -87,7 +91,7 @@ const LoginForm = (): JSX.Element => {
           </Center>
         </form>
       </Box>
-    </Center>
+    </VStack>
   );
 };
 

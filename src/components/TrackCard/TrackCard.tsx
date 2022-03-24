@@ -5,7 +5,6 @@ import {
   useColorModeValue,
   Stack,
   Heading,
-  Avatar,
   Image,
   IconButton,
   Flex,
@@ -26,7 +25,7 @@ const TrackCard = ({
   track: { id, image, name, difficulty, kids, refuge, updatedAt, user },
 }: TrackCardProps): JSX.Element => {
   const router = useRouter();
-  const bgCard = useColorModeValue("white", "gray.900");
+  const bgCard = useColorModeValue("white", "#0f1117");
   const headingColor = useColorModeValue("gray.700", "white");
   const viewIconColor = useColorModeValue("green", "lightgreen");
 
@@ -42,7 +41,7 @@ const TrackCard = ({
         overflow={"hidden"}
       >
         <Box
-          h={"210px"}
+          h={["150px", "190px"]}
           bg={"gray.100"}
           mt={-6}
           mx={-6}
@@ -53,7 +52,7 @@ const TrackCard = ({
             src={image}
             alt={name}
             objectFit={"cover"}
-            h={"210px"}
+            h={["150px", "190px"]}
             w={"full"}
           />
         </Box>
@@ -72,7 +71,7 @@ const TrackCard = ({
               <Heading
                 as="h2"
                 color={headingColor}
-                fontSize={"2xl"}
+                fontSize={["xl", "2xl"]}
                 fontFamily={"body"}
                 fontWeight={600}
               >

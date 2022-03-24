@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
 import renderWithProviders from "../jest.setup";
 import MyProfilePage, { getServerSideProps } from "../src/pages/my-profile";
 import "whatwg-fetch";
@@ -25,7 +25,10 @@ describe("Given a MyProfilePage component", () => {
         params: {},
       };
 
-      await getServerSideProps(context as GetServerSidePropsContext);
+      await act(async () => {
+        await getServerSideProps(context as GetServerSidePropsContext);
+      });
+
       const expectedText = await screen.findByText(/My profile/i);
 
       expect(expectedText).toBeInTheDocument();

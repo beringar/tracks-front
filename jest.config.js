@@ -19,6 +19,8 @@ const customJestConfig = {
     "!next.config.js",
     "!**/_app.tsx",
     "!**/theme.tsx",
+    "!**/MapComponent.tsx",
+    "!**/TrackForm.tsx",
     "!**/_document.tsx",
     "!**/*.d.ts",
     "!**/node_modules/**",

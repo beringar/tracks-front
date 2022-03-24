@@ -32,7 +32,7 @@ import {
   FaSnowflake,
 } from "react-icons/fa";
 import { useForm } from "react-hook-form";
-import AlertInfo from "../AlertInfo/AltertInfo";
+import AlertInfo from "../AlertInfo/AlertInfo";
 import { useDispatch, useSelector } from "react-redux";
 import { updateTrackThunk } from "../../redux/thunks/tracksThunks";
 import { RootState } from "../../redux/store";
@@ -41,7 +41,7 @@ import { useEffect, useState } from "react";
 const TrackEditForm = ({ track }): JSX.Element => {
   const toast = useToast();
   const dispatch = useDispatch();
-  const { isSubmitting, user } = useSelector((state: RootState) => state);
+  const { isSubmitting } = useSelector((state: RootState) => state);
   const [trackToUpdate, setTrackToUpdate] = useState(null);
 
   const {
