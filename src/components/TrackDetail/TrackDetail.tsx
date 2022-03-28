@@ -1,10 +1,10 @@
+import Image from "next/image";
 import {
   Text,
   Box,
   useColorModeValue,
   Stack,
   Heading,
-  Image,
   chakra,
   HStack,
   Icon,
@@ -57,8 +57,8 @@ const TrackItem = ({
           src={image}
           alt={name}
           objectFit={"cover"}
-          h={["160px", "300px"]}
-          w={"full"}
+          layout="fill"
+          sizes="320 640 750 1024"
         />
       </Box>
       <Box px={[0, 3]}>
@@ -83,7 +83,7 @@ const TrackItem = ({
           </chakra.span>
         </Text>
         <Stack direction={["column", "row"]}>
-          <HStack alignItems={"baseline"}>
+          <HStack alignItems={"baseline"} gap="8px">
             <Text>
               Track difficulty:{" "}
               <chakra.span fontWeight={"bold"}>{difficulty}</chakra.span>
@@ -91,31 +91,35 @@ const TrackItem = ({
             {difficulty === "low" && (
               <Image
                 src={LowDifficulty.src}
-                h={["30px", "40px"]}
+                width="53"
+                height="35"
                 alt="low difficulty track"
               />
             )}
             {difficulty === "normal" && (
               <Image
                 src={NormalDifficulty.src}
-                h={["30px", "40px"]}
+                width="53"
+                height="35"
                 alt="normal difficulty track"
               />
             )}
             {difficulty === "high" && (
               <Image
                 src={HighDifficulty.src}
-                h={["30px", "40px"]}
+                width="53"
+                height="35"
                 alt="high difficulty track"
               />
             )}
           </HStack>
           {kids && (
-            <HStack alignItems={"baseline"}>
+            <HStack alignItems={"baseline"} gap="8px">
               <Text>Suitable for children</Text>
               <Image
                 src={KidsFriendly.src}
-                h={["30px", "40px"]}
+                width="53"
+                height="35"
                 alt="kids friendly track"
               />
             </HStack>

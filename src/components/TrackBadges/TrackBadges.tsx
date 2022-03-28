@@ -1,4 +1,5 @@
-import { Image, HStack } from "@chakra-ui/react";
+import Image from "next/image";
+import { HStack } from "@chakra-ui/react";
 import LowDifficulty from "../../../public/img/low-difficulty.svg";
 import NormalDifficulty from "../../../public/img/normal-difficulty.svg";
 import HighDifficulty from "../../../public/img/high-difficulty.svg";
@@ -15,7 +16,8 @@ const getDifficultyBadge = (difficulty: string): JSX.Element => {
       return (
         <Image
           src={LowDifficulty.src}
-          h={["30px", "40px"]}
+          width="53"
+          height="35"
           alt="low difficulty track"
         />
       );
@@ -23,7 +25,8 @@ const getDifficultyBadge = (difficulty: string): JSX.Element => {
       return (
         <Image
           src={HighDifficulty.src}
-          h={["30px", "40px"]}
+          width="53"
+          height="35"
           alt="high difficulty track"
         />
       );
@@ -32,7 +35,8 @@ const getDifficultyBadge = (difficulty: string): JSX.Element => {
       return (
         <Image
           src={NormalDifficulty.src}
-          h={["30px", "40px"]}
+          width="53"
+          height="35"
           alt="normal difficulty track"
         />
       );
@@ -41,12 +45,13 @@ const getDifficultyBadge = (difficulty: string): JSX.Element => {
 
 const TrackBadges = ({ difficulty, kids }: TrackBadgesProps): JSX.Element => {
   return (
-    <HStack spacing="10px">
+    <HStack gap="10px">
       {getDifficultyBadge(difficulty)}
       {kids && (
         <Image
           src={KidsFriendly.src}
-          h={["30px", "40px"]}
+          width="53"
+          height="35"
           alt="kids friendly track"
         />
       )}
