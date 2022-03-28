@@ -53,7 +53,8 @@ const TrackCard = ({
             alt={name}
             layout={"fill"}
             objectFit={"cover"}
-            sizes="320 445"
+            sizes="50vw"
+            loading="lazy"
           />
         </Box>
         <Stack>
