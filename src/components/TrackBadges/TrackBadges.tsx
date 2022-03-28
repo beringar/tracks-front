@@ -18,6 +18,7 @@ const getDifficultyBadge = (difficulty: string): JSX.Element => {
           src={LowDifficulty.src}
           width="53"
           height="35"
+          layout="fixed"
           alt="low difficulty track"
         />
       );
@@ -27,6 +28,7 @@ const getDifficultyBadge = (difficulty: string): JSX.Element => {
           src={HighDifficulty.src}
           width="53"
           height="35"
+          layout="fixed"
           alt="high difficulty track"
         />
       );
@@ -37,6 +39,7 @@ const getDifficultyBadge = (difficulty: string): JSX.Element => {
           src={NormalDifficulty.src}
           width="53"
           height="35"
+          layout="fixed"
           alt="normal difficulty track"
         />
       );
@@ -52,6 +55,7 @@ const TrackBadges = ({ difficulty, kids }: TrackBadgesProps): JSX.Element => {
           src={KidsFriendly.src}
           width="53"
           height="35"
+          layout="fixed"
           alt="kids friendly track"
         />
       )}
