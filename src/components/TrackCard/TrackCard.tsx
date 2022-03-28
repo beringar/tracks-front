@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   Text,
   Box,
@@ -5,7 +6,6 @@ import {
   useColorModeValue,
   Stack,
   Heading,
-  Image,
   IconButton,
   Flex,
   Link,
@@ -51,9 +51,9 @@ const TrackCard = ({
           <Image
             src={image}
             alt={name}
+            layout={"fill"}
             objectFit={"cover"}
-            h={["150px", "190px"]}
-            w={"full"}
+            sizes="320 445"
           />
         </Box>
         <Stack>

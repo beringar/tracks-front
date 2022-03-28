@@ -8,7 +8,6 @@ import {
   ZoomControl,
   Marker,
   LayersControl,
-  LayersControlProps,
 } from "react-leaflet";
 
 import L from "leaflet";
@@ -33,7 +32,6 @@ const MapComponent = ({ gpxUrl }): JSX.Element => {
       const gpx = new gpxParser();
       gpx.parse(data);
       const positions = gpx.tracks[0].points.map((p) => [p.lat, p.lon]);
-      //((gpx.tracks[0].distance.total / 1000).toFixed(2));
       setPositionsGpx(positions);
     })();
   }, [gpxUrl]);
