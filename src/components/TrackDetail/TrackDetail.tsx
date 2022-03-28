@@ -59,6 +59,7 @@ const TrackItem = ({
           objectFit={"cover"}
           layout="fill"
           sizes="320 640 750 1024"
+          priority
         />
       </Box>
       <Box px={[0, 3]}>
