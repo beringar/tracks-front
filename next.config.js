@@ -6,6 +6,7 @@ const nextConfig = {
   },
   reactStrictMode: true,
   images: {
+    minimumCacheTTL: 60,
     domains: [
       "images.unsplash.com",
       "mapio.net",
