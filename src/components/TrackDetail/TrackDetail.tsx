@@ -93,6 +93,7 @@ const TrackItem = ({
                 src={LowDifficulty.src}
                 width="53"
                 height="35"
+                layout="fixed"
                 alt="low difficulty track"
               />
             )}
@@ -101,6 +102,7 @@ const TrackItem = ({
                 src={NormalDifficulty.src}
                 width="53"
                 height="35"
+                layout="fixed"
                 alt="normal difficulty track"
               />
             )}
@@ -109,6 +111,7 @@ const TrackItem = ({
                 src={HighDifficulty.src}
                 width="53"
                 height="35"
+                layout="fixed"
                 alt="high difficulty track"
               />
             )}
@@ -120,6 +123,7 @@ const TrackItem = ({
                 src={KidsFriendly.src}
                 width="53"
                 height="35"
+                layout="fixed"
                 alt="kids friendly track"
               />
             </HStack>
