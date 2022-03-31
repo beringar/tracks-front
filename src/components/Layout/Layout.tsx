@@ -19,11 +19,11 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta
           name="description"
-          content="Tracks App Upload your best GPX tracks"
+          content="Tracks App | Upload your best GPX tracks"
         />
         <meta
           property="og:image"
-          content="https://tracks-berenguer-pou.vercel.app/img/backpack.png"
+          content="https://tracks-berenguer-pou.vercel.app/img/tracks-app.png"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
