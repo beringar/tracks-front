@@ -21,6 +21,10 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
           name="description"
           content="Tracks App Upload your best GPX tracks"
         />
+        <meta
+          property="og:image"
+          content="https://tracks-berenguer-pou.vercel.app/img/backpack.png"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <NavBar user={user} />
