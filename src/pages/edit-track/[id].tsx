@@ -26,7 +26,19 @@ const EditTrackPage = (): JSX.Element => {
   );
 };
 
-export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
+export const getServerSideProps = wrapper.getServerSideProps(
+  (store) => async (context) => {
+    const id = context.params?.id;
+    await store.dispatch<any>(loadTrackThunk(id as string));
+
+    return {
+      props: {},
+    };
+  }
+);
+
+
+/* export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   (store) => async (context) => {
     const id = context.params?.id;
     await store.dispatch<any>(loadTrackThunk(id as string));
@@ -47,6 +59,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
     paths: tracks.map((track) => ({ params: { id: `${track.id}` } })),
     fallback: "blocking",
   };
-};
+}; */
 
 export default EditTrackPage;
