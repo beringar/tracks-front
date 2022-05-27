@@ -10,6 +10,7 @@ const trackReducers = (track: any = {}, action: AnyAction = { type: "" }) => {
       newTrack = { ...action.payload.track };
       break;
     case actionTypes.loadTrack:
+    case actionTypes.updateTrack:
       newTrack = { ...action.track };
       break;
     default:
