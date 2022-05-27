@@ -100,7 +100,7 @@ export const updateTrackThunk =
     );
     const responseServer = await response.json();
     if (response.ok) {
-      dispatch(updateTrackAction(track));
+      dispatch(updateTrackAction(responseServer));
       toast({
         title: "Track UPDATED!",
         description: responseServer.message,
