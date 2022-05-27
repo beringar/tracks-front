@@ -108,7 +108,7 @@ export const updateTrackThunk =
         duration: 9000,
         isClosable: true,
       });
-      reset();
+      reset(responseServer);
     } else {
       toast({
         title: "ERROR updating track!",
@@ -117,6 +117,7 @@ export const updateTrackThunk =
         duration: 9000,
         isClosable: true,
       });
+      reset();
     }
     dispatch(unsetSubmittingAction());
   };
