@@ -3,6 +3,7 @@ import {
   deleteTrackAction,
   loadAllTracksAction,
   loadTrackAction,
+  updateTrackAction,
 } from "../actions/tracksActionCreator/tracksActionCreator";
 import {
   setSubmittingAction,
@@ -99,6 +100,7 @@ export const updateTrackThunk =
     );
     const responseServer = await response.json();
     if (response.ok) {
+      dispatch(updateTrackAction(track));
       toast({
         title: "Track UPDATED!",
         description: responseServer.message,
