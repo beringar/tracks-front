@@ -34,15 +34,17 @@ import {
 import { useForm } from "react-hook-form";
 import AlertInfo from "../AlertInfo/AlertInfo";
 import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from "next/router";
 import { updateTrackThunk } from "../../redux/thunks/tracksThunks";
 import { RootState } from "../../redux/store";
 import { useEffect, useState } from "react";
 
 const TrackEditForm = ({ track }): JSX.Element => {
+  const router = useRouter();
   const toast = useToast();
   const dispatch = useDispatch();
   const { isSubmitting } = useSelector((state: RootState) => state);
-  const [trackToUpdate, setTrackToUpdate] = useState(null);
+  const [trackToUpdate, setTrackToUpdate] = useState(track);
 
   const {
     register,
@@ -50,27 +52,22 @@ const TrackEditForm = ({ track }): JSX.Element => {
     formState: { errors },
     reset,
   } = useForm({
-    defaultValues: track,
+    defaultValues: trackToUpdate,
   });
 
-  useEffect(() => {
-    setTrackToUpdate(track);
-  }, [track]);
-
   const onSubmit = async (data) => {
-    dispatch(updateTrackThunk(track.id, data, toast, reset));
+    const updateResult = await dispatch(
+      updateTrackThunk(track.id, data, toast, reset)
+    );
+    router.push(`/track/${track.id}`);
   };
 
   const onChangeSwitchCheckboxes = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    const property = event.target.name;
     setTrackToUpdate({
       ...trackToUpdate,
-      [property]:
-        event.target.value === "kids"
-          ? event.target.checked
-          : event.target.value,
+      kids: event.target.checked,
     });
   };
 
@@ -220,7 +217,6 @@ const TrackEditForm = ({ track }): JSX.Element => {
         </FormLabel>
         <Switch
           id="kidsswitch"
-          value={"kids"}
           colorScheme="pink"
           {...register("kids")}
           isChecked={trackToUpdate?.kids}
