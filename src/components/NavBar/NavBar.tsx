@@ -35,12 +35,16 @@ const NavBar = ({ user }) => {
     <StickyNav bg={backgroundColor}>
       <Container maxW="container.lg">
         <Flex w="100%" px="2" py="5" align="center" justify="space-between">
-          <HStack spacing={3}>
-            <Image src={Logo.src} h="50px" alt="Tracks Logo" />
-            <Heading as="h1" size="lg" color={textColor}>
-              Tracks
-            </Heading>
-          </HStack>
+          <NextLink href={"/home"} passHref>
+            <Link _hover={{ textDecoration: "none" }}>
+              <HStack spacing={3}>
+                <Image src={Logo.src} h="50px" alt="Tracks Logo" />
+                <Heading as="h1" size="lg" color={textColor}>
+                  Tracks
+                </Heading>
+              </HStack>
+            </Link>
+          </NextLink>
           <HStack as="nav" spacing="5">
             <NextLink href="/home" passHref>
               <Link color={textColor}>All tracks</Link>
