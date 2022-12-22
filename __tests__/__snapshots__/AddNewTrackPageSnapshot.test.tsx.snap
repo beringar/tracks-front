@@ -204,6 +204,7 @@ exports[`renders homepage unchanged 1`] = `
                       <img
                         alt="low difficulty track"
                         class="chakra-image css-16kb41"
+                        src="/img.jpg"
                       />
                     </div>
                     <p
@@ -243,6 +244,7 @@ exports[`renders homepage unchanged 1`] = `
                       <img
                         alt="normal difficulty track"
                         class="chakra-image css-16kb41"
+                        src="/img.jpg"
                       />
                     </div>
                     <p
@@ -282,6 +284,7 @@ exports[`renders homepage unchanged 1`] = `
                       <img
                         alt="high difficulty track"
                         class="chakra-image css-16kb41"
+                        src="/img.jpg"
                       />
                     </div>
                     <p
@@ -309,6 +312,7 @@ exports[`renders homepage unchanged 1`] = `
         <img
           alt="kids friendly track"
           class="chakra-image css-1drmi6p"
+          src="/img.jpg"
         />
         <label
           class="chakra-form__label css-1w9kk21"

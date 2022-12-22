@@ -16,6 +16,7 @@ exports[`renders login unchanged 1`] = `
       <img
         alt="Backpack"
         class="chakra-image css-14a85xb"
+        src="/img.jpg"
       />
       <div
         class="css-njifjv"

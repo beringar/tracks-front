@@ -12,7 +12,7 @@ export default async function handler(
 
   try {
     let pathToRevalidate = req.query["path"] as string;
-    await res.unstable_revalidate(path.join("/", pathToRevalidate));
+    await res.revalidate(path.join("/", pathToRevalidate));
     return res.status(200).json({ revalidated: true });
   } catch (err) {
     return res.status(500).send("Error revalidating");
