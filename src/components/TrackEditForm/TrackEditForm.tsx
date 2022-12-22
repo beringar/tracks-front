@@ -50,16 +50,15 @@ const TrackEditForm = ({ track }): JSX.Element => {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
   } = useForm({
     defaultValues: trackToUpdate,
   });
 
   const onSubmit = async (data) => {
     const updateResult = await dispatch(
-      updateTrackThunk(track.id, data, toast, reset)
+      updateTrackThunk(track.id, data, toast)
     );
-    router.push(`/track/${track.id}`);
+    router.push("/my-profile");
   };
 
   const onChangeSwitchCheckboxes = (

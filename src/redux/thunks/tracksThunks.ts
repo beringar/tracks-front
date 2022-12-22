@@ -80,7 +80,7 @@ export const createTrackThunk =
   };
 
 export const updateTrackThunk =
-  (trackId, track, toast, reset) => async (dispatch: AppDispatch) => {
+  (trackId, track, toast) => async (dispatch: AppDispatch) => {
     dispatch(setSubmittingAction());
     const formData = new FormData();
     formData.append("name", track.name);
@@ -105,7 +105,7 @@ export const updateTrackThunk =
       const revalidateURL = path.join(
         `/api/revalidate/revalidate?path=/track/${trackId}&secret=${process.env.NEXT_PUBLIC_REVALIDATE_TOKEN}`
       );
-      await fetch(revalidateURL);
+      fetch(revalidateURL);
 
       toast({
         title: "Track UPDATED!",
@@ -114,8 +114,6 @@ export const updateTrackThunk =
         duration: 9000,
         isClosable: true,
       });
-
-      //reset(responseServer);
     } else {
       toast({
         title: "ERROR updating track!",
@@ -124,7 +122,6 @@ export const updateTrackThunk =
         duration: 9000,
         isClosable: true,
       });
-      //reset();
     }
     dispatch(unsetSubmittingAction());
     return false;
