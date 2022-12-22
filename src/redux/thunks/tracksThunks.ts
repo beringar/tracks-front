@@ -108,7 +108,7 @@ export const updateTrackThunk =
         duration: 9000,
         isClosable: true,
       });
-      reset(responseServer);
+      //reset(responseServer);
     } else {
       toast({
         title: "ERROR updating track!",
@@ -117,9 +117,10 @@ export const updateTrackThunk =
         duration: 9000,
         isClosable: true,
       });
-      reset();
+      //reset();
     }
     dispatch(unsetSubmittingAction());
+    return 900;
   };
 
 export const loadTrackThunk = (id: string) => async (dispatch: AppDispatch) => {
