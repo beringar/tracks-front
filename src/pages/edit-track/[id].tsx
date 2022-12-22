@@ -1,7 +1,6 @@
 import { Track } from "../../types/Track";
 import { useSelector } from "react-redux";
 import { RootState, wrapper } from "../../redux/store";
-import { GetStaticPaths, GetStaticProps } from "next";
 import { loadTrackThunk } from "../../redux/thunks/tracksThunks";
 import TrackEditForm from "../../components/TrackEditForm/TrackEditForm";
 import { Container, Heading } from "@chakra-ui/react";

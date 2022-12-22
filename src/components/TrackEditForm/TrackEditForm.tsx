@@ -58,7 +58,7 @@ const TrackEditForm = ({ track }): JSX.Element => {
     const updateResult = await dispatch(
       updateTrackThunk(track.id, data, toast)
     );
-    router.push("/my-profile");
+    router.push("/home");
   };
 
   const onChangeSwitchCheckboxes = (
