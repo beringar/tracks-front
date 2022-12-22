@@ -37,28 +37,4 @@ export const getServerSideProps = wrapper.getServerSideProps(
   }
 );
 
-
-/* export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
-  (store) => async (context) => {
-    const id = context.params?.id;
-    await store.dispatch<any>(loadTrackThunk(id as string));
-    return {
-      props: {},
-      revalidate: 20,
-    };
-  }
-);
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_TRACKS_API_URL}tracks`
-  );
-  const { tracks } = await response.json();
-
-  return {
-    paths: tracks.map((track) => ({ params: { id: `${track.id}` } })),
-    fallback: "blocking",
-  };
-}; */
-
 export default EditTrackPage;
