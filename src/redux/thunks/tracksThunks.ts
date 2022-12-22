@@ -1,4 +1,5 @@
 import { AppDispatch } from "../store";
+import path from "path";
 import {
   deleteTrackAction,
   loadAllTracksAction,
@@ -101,6 +102,11 @@ export const updateTrackThunk =
     const responseServer = await response.json();
     if (response.ok) {
       dispatch(updateTrackAction(responseServer));
+      const revalidateURL = path.join(
+        `/api/revalidate/revalidate?path=/track/${trackId}&secret=${process.env.NEXT_PUBLIC_REVALIDATE_TOKEN}`
+      );
+      await fetch(revalidateURL);
+
       toast({
         title: "Track UPDATED!",
         description: responseServer.message,
@@ -108,6 +114,7 @@ export const updateTrackThunk =
         duration: 9000,
         isClosable: true,
       });
+
       //reset(responseServer);
     } else {
       toast({
@@ -120,7 +127,7 @@ export const updateTrackThunk =
       //reset();
     }
     dispatch(unsetSubmittingAction());
-    return 900;
+    return false;
   };
 
 export const loadTrackThunk = (id: string) => async (dispatch: AppDispatch) => {

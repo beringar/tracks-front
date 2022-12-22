@@ -50,7 +50,7 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
     await store.dispatch<any>(loadTrackThunk(id as string));
     return {
       props: {},
-      revalidate: 1,
+      revalidate: 60,
     };
   }
 );
