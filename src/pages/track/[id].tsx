@@ -25,20 +25,30 @@ const TrackItemPage = (): JSX.Element => {
     []
   );
 
+  const downloadGpxFile = () => {
+    const element = document.createElement("a");
+    element.href = track.gpx;
+    element.download = "";
+    // simulate link click
+    document.body.appendChild(element); // Required for this to work in FireFox
+    element.click();
+    // remove anchor after click
+    document.body.removeChild(element);
+  };
+
   return (
     <>
       <TrackDetail track={track} />
       <MapComponentNoSSR gpxUrl={track.gpx} />
       <Center my={4}>
-        <a download href={track.gpx}>
-          <Button
-            leftIcon={<FiDownload />}
-            borderRadius="md"
-            colorScheme="green"
-          >
-            Download track
-          </Button>
-        </a>
+        <Button
+          leftIcon={<FiDownload />}
+          borderRadius="md"
+          colorScheme="green"
+          onClick={downloadGpxFile}
+        >
+          Download track
+        </Button>
       </Center>
     </>
   );
