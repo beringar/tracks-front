@@ -31,6 +31,9 @@ const MapComponent = ({ gpxUrl }): JSX.Element => {
       const data = await gpxFile.text();
       const gpx = new gpxParser();
       gpx.parse(data);
+      const distance = (gpx.tracks[0].distance.total / 1000).toFixed(2);
+      const { avg, max, min, neg, pos } = gpx.tracks[0].elevation;
+      const averageElevation = Math.ceil(avg);
       const positions = gpx.tracks[0].points.map((p) => [p.lat, p.lon]);
       setPositionsGpx(positions);
     })();
@@ -51,6 +54,15 @@ const MapComponent = ({ gpxUrl }): JSX.Element => {
             </LayersControl.BaseLayer>
             <LayersControl.BaseLayer name="OSM Topographic">
               <TileLayer url="https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png" />
+            </LayersControl.BaseLayer>
+            <LayersControl.BaseLayer name="Stamen Terrain">
+              <TileLayer url="https://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}{r}.png" />
+            </LayersControl.BaseLayer>
+            <LayersControl.BaseLayer name="ESRI World Topo Map">
+              <TileLayer url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}" />
+            </LayersControl.BaseLayer>
+            <LayersControl.BaseLayer name="ESRI World Imagery">
+              <TileLayer url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}" />
             </LayersControl.BaseLayer>
           </LayersControl>
 
