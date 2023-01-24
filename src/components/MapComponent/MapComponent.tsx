@@ -31,6 +31,9 @@ const MapComponent = ({ gpxUrl }): JSX.Element => {
       const data = await gpxFile.text();
       const gpx = new gpxParser();
       gpx.parse(data);
+      const distance = (gpx.tracks[0].distance.total / 1000).toFixed(2);
+      const { avg, max, min, neg, pos } = gpx.tracks[0].elevation;
+      const averageElevation = Math.ceil(avg);
       const positions = gpx.tracks[0].points.map((p) => [p.lat, p.lon]);
       setPositionsGpx(positions);
     })();
