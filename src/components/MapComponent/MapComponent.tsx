@@ -14,6 +14,7 @@ import L from "leaflet";
 import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
 import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
+import { HStack, Stack, StackDivider, Text } from "@chakra-ui/react";
 
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
@@ -22,8 +23,20 @@ L.Icon.Default.mergeOptions({
   shadowUrl: markerShadow.src,
 });
 
+type TrackStats = {
+  distance: { total: number };
+  elevation: {
+    avg: number;
+    max: number;
+    min: number;
+    neg: number;
+    pos: number;
+  };
+};
+
 const MapComponent = ({ gpxUrl }): JSX.Element => {
   const [positionsGpx, setPositionsGpx] = useState<number[][]>();
+  const [trackStats, setTrackStats] = useState<TrackStats>();
 
   useEffect(() => {
     (async () => {
@@ -31,16 +44,28 @@ const MapComponent = ({ gpxUrl }): JSX.Element => {
       const data = await gpxFile.text();
       const gpx = new gpxParser();
       gpx.parse(data);
-      const distance = (gpx.tracks[0].distance.total / 1000).toFixed(2);
-      const { avg, max, min, neg, pos } = gpx.tracks[0].elevation;
-      const averageElevation = Math.ceil(avg);
       const positions = gpx.tracks[0].points.map((p) => [p.lat, p.lon]);
       setPositionsGpx(positions);
+      setTrackStats({
+        distance: gpx.tracks[0].distance,
+        elevation: gpx.tracks[0].elevation,
+      });
     })();
   }, [gpxUrl]);
 
   return (
     <>
+      {trackStats && (
+        <>
+          <HStack justify={"space-evenly"} wrap={"wrap"}>
+            <Text>
+              Total distance: {(trackStats.distance.total / 1000).toFixed(2)} Km
+            </Text>
+            <Text>Max elevation: {Math.ceil(trackStats.elevation.max)} m</Text>
+            <Text>Min elevation: {Math.ceil(trackStats.elevation.min)} m</Text>
+          </HStack>
+        </>
+      )}
       {positionsGpx && (
         <MapContainer
           bounds={positionsGpx}
