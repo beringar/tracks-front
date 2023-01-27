@@ -14,7 +14,8 @@ import L from "leaflet";
 import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
 import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
-import { HStack, Stack, StackDivider, Text } from "@chakra-ui/react";
+import { HStack, Icon, Text, VStack } from "@chakra-ui/react";
+import { FiArrowDownRight, FiArrowUpRight, FiEye } from "react-icons/fi";
 
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
@@ -57,12 +58,54 @@ const MapComponent = ({ gpxUrl }): JSX.Element => {
     <>
       {trackStats && (
         <>
-          <HStack justify={"space-evenly"} wrap={"wrap"}>
-            <Text>
-              Total distance: {(trackStats.distance.total / 1000).toFixed(2)} Km
-            </Text>
-            <Text>Max elevation: {Math.ceil(trackStats.elevation.max)} m</Text>
-            <Text>Min elevation: {Math.ceil(trackStats.elevation.min)} m</Text>
+          <HStack justify={"space-evenly"} wrap={"wrap"} mb={1}>
+            <VStack spacing={0}>
+              <Text color={"GrayText"} fontSize={"sm"}>
+                Total distance
+              </Text>
+              <Text fontWeight={"bold"}>
+                {(trackStats.distance.total / 1000).toFixed(2).toLocaleString()}{" "}
+                Km
+              </Text>
+            </VStack>
+            <VStack spacing={0}>
+              <Text color={"GrayText"} fontSize={"sm"}>
+                Max elevation
+              </Text>
+              <Text fontWeight={"bold"}>
+                {Math.ceil(trackStats.elevation.max).toLocaleString()} m
+              </Text>
+            </VStack>
+            <VStack spacing={0}>
+              <Text color={"GrayText"} fontSize={"sm"}>
+                Min elevation
+              </Text>
+              <Text fontWeight={"bold"}>
+                {Math.ceil(trackStats.elevation.min).toLocaleString()} m
+              </Text>
+            </VStack>
+            <VStack spacing={0}>
+              <Text color={"GrayText"} fontSize={"sm"}>
+                Elevation gain
+              </Text>
+              <HStack>
+                <Icon as={FiArrowUpRight} color="green.400" strokeWidth={3} />
+                <Text fontWeight={"bold"}>
+                  {Math.ceil(trackStats.elevation.pos).toLocaleString()} m
+                </Text>
+              </HStack>
+            </VStack>
+            <VStack spacing={0}>
+              <Text color={"GrayText"} fontSize={"sm"}>
+                Elevation loss
+              </Text>
+              <HStack>
+                <Icon as={FiArrowDownRight} color="red.400" strokeWidth={3} />
+                <Text fontWeight={"bold"}>
+                  {Math.ceil(trackStats.elevation.neg).toLocaleString()} m
+                </Text>
+              </HStack>
+            </VStack>
           </HStack>
         </>
       )}
