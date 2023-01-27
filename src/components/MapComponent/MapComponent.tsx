@@ -117,17 +117,32 @@ const MapComponent = ({ gpxUrl }): JSX.Element => {
           zoomControl={false}
         >
           <LayersControl>
-            <LayersControl.BaseLayer checked name="OpenStreetMap Mapnik">
+            <LayersControl.BaseLayer checked name="OpenStreetMap Base">
               <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
             </LayersControl.BaseLayer>
-            <LayersControl.BaseLayer name="OSM Topographic">
+            <LayersControl.BaseLayer name="Standard ICGC">
+              <TileLayer url="https://geoserveis.icgc.cat/styles/icgc_mapa_estandard/{z}/{x}/{y}.png" />
+            </LayersControl.BaseLayer>
+            <LayersControl.BaseLayer name="Topo ICGC">
+              <TileLayer url="https://tilemaps.icgc.cat/mapfactory/wmts/topo_suau/CAT3857/{z}/{x}/{y}.png" />
+            </LayersControl.BaseLayer>
+            <LayersControl.BaseLayer name="Topo Classic ICGC">
+              <TileLayer url="https://geoserveis.icgc.cat/icc_mapesmultibase/noutm/wmts/topo/GRID3857/{z}/{x}/{y}.png" />
+            </LayersControl.BaseLayer>
+            <LayersControl.BaseLayer name="Relief ICGC">
+              <TileLayer url="https://tilemaps.icgc.cat/mapfactory/wmts/relleu/CAT3857/{z}/{x}/{y}.png" />
+            </LayersControl.BaseLayer>
+            <LayersControl.BaseLayer name="OSM Topo">
               <TileLayer url="https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png" />
             </LayersControl.BaseLayer>
-            <LayersControl.BaseLayer name="Stamen Terrain">
-              <TileLayer url="https://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}{r}.png" />
-            </LayersControl.BaseLayer>
-            <LayersControl.BaseLayer name="ESRI Topo Map">
+            <LayersControl.BaseLayer name="ESRI Topo">
               <TileLayer url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}" />
+            </LayersControl.BaseLayer>
+            <LayersControl.BaseLayer name="Ortofoto ICGC">
+              <TileLayer url="https://geoserveis.icgc.cat/icc_mapesmultibase/noutm/wmts/orto/GRID3857/{z}/{x}/{y}.png" />
+            </LayersControl.BaseLayer>
+            <LayersControl.BaseLayer name="Orto Hybrid ICGC">
+              <TileLayer url="https://geoserveis.icgc.cat/styles/icgc_orto_hibrida/{z}/{x}/{y}.png" />
             </LayersControl.BaseLayer>
             <LayersControl.BaseLayer name="ESRI Satellite">
               <TileLayer url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}" />
