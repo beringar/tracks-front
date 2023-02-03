@@ -40,23 +40,27 @@ const TrackCard = ({
         p={6}
         overflow={"hidden"}
       >
-        <Box
-          h={["150px", "190px"]}
-          bg={"gray.100"}
-          mt={-6}
-          mx={-6}
-          mb={3}
-          pos={"relative"}
-        >
-          <Image
-            src={image}
-            alt={name}
-            layout={"fill"}
-            objectFit={"cover"}
-            sizes="50vw"
-            loading="lazy"
-          />
-        </Box>
+        <NextLink href={`/track/${id}`} passHref>
+          <Link>
+            <Box
+              h={["150px", "190px"]}
+              bg={"gray.100"}
+              mt={-6}
+              mx={-6}
+              mb={3}
+              pos={"relative"}
+            >
+              <Image
+                src={image}
+                alt={name}
+                layout={"fill"}
+                objectFit={"cover"}
+                sizes="50vw"
+                loading="lazy"
+              />
+            </Box>
+          </Link>
+        </NextLink>
         <Stack>
           <Text
             color={"green.500"}
